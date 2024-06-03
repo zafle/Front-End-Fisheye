@@ -9,7 +9,7 @@
                 "country": "France",
                 "tagline": "Ceci est ma data test",
                 "price": 400,
-                "portrait": "account.png"
+                "portrait": "EllieRoseWilkens.jpg"
             },
             {
                 "name": "Autre data test",

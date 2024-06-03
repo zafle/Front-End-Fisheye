@@ -41,7 +41,15 @@ header {
   color: #D3573C;
   font-size: 36px;
 }
+.photographer_section article .photographer_wrapper {
+  -webkit-mask-image: url(../../../assets/images/mask.png);
+          mask-image: url(../../../assets/images/mask.png);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  width: 215px;
+  height: 215px;
+}
 .photographer_section article img {
-  height: 200px;
-  width: 200px;
+  width: 215px;
+  height: 215px;
 }/*# sourceMappingURL=style.css.map */
