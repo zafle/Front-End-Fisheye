@@ -24,24 +24,20 @@ header {
 }
 
 /* ####### HOMEPAGE ####### */
-.photographer_section {
+.photographer__section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
   margin-top: 100px;
 }
-.photographer_section article {
+.photographer__article {
   justify-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.photographer_section article h2 {
-  color: #D3573C;
-  font-size: 36px;
-}
-.photographer_section article .photographer_wrapper {
+.photographer__img-mask {
   -webkit-mask-image: url(../../../assets/images/mask.png);
           mask-image: url(../../../assets/images/mask.png);
   -webkit-mask-repeat: no-repeat;
@@ -49,7 +45,11 @@ header {
   width: 215px;
   height: 215px;
 }
-.photographer_section article img {
+.photographer__img-mask img {
   width: 215px;
   height: 215px;
+}
+.photographer__name {
+  color: #D3573C;
+  font-size: 36px;
 }/*# sourceMappingURL=style.css.map */
