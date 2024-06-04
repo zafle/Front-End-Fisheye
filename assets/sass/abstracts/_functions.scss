@@ -1,0 +1,17 @@
+@use 'sass:math';
+
+// CALCULATE REM VALUE
+
+// Return a value without unit
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return math.div($number, ($number * 0 + 1));
+    }
+
+    @return $number;
+}
+
+// Return a rem value of a given pixel value
+@function rem($size, $base: $base-font-size) {
+    @return 1rem * calc($size / strip-unit($base)) ;
+}

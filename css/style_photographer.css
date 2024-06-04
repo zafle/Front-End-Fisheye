@@ -1,12 +1,33 @@
 /* ####### GENERAL ####### */
 body {
+  font-size: 16px;
   font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
   margin: 0;
 }
 
-h1 {
-  color: #901C1C;
-  margin-right: 100px;
+.main-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 45px 100px;
+}
+
+/* ####### RESET ####### */
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 400;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  margin: 0;
 }
 
 /* ####### CONTACT MODAL ####### */
@@ -68,18 +89,31 @@ form input {
   border-radius: 5px;
 }
 
+.photographer__img-mask {
+  -webkit-mask-image: url(../../../assets/images/mask.png);
+          mask-image: url(../../../assets/images/mask.png);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  width: 215px;
+  height: 215px;
+  margin: 0 auto;
+}
+.photographer__img-mask img {
+  width: 215px;
+  height: 215px;
+}
+
 /* ####### HEADER ####### */
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  height: 90px;
+  align-items: end;
+  margin-bottom: 40px;
 }
 
 .logo {
   height: 50px;
-  margin-left: 100px;
 }
 
 /* ####### PHOTOGRAPHER ####### */

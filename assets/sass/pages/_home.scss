@@ -1,32 +1,45 @@
 /* ####### HOMEPAGE ####### */
 
+header h1 {
+    color: $deep-red;
+    font-size: rem(36);
+}
+
 .photographer {
     &__section {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 70px;
-        margin-top: 100px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 75px;
+        padding: 75px 0;
+        text-align: center;
     }
     &__article {
-        justify-self: center;
+        flex: 0 0 0;
+        min-width: 320px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
-    &__img-mask {
-        mask-image: url(../../../assets/images/mask.png);
-        mask-repeat: no-repeat;
-        width: 215px;
-        height: 215px;
-
-        img {
-            width: 215px;
-            height: 215px;
-        }
+    &__link {
+        text-decoration: none;
     }
     &__name {
-        color: #D3573C;
-        font-size: 36px;
+        color: $light-red;
+        font-size: rem(36);
+        text-decoration: none;
+    }
+    &__location {
+        color: $deep-red;
+        font-size: rem(13);
+    }
+    &__tagline {
+        font-size: rem(10);
+    }
+    &__price {
+        color: $grey;
+        font-size: rem(9);
     }
 }

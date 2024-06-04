@@ -1,0 +1,13 @@
+// Photographer's portrait image
+.photographer__img-mask {
+    mask-image: url(../../../assets/images/mask.png);
+    mask-repeat: no-repeat;
+    width: 215px;
+    height: 215px;
+    margin: 0 auto;
+
+    img {
+        width: 215px;
+        height: 215px;
+    }
+}
