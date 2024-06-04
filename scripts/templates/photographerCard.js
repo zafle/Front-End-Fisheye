@@ -11,9 +11,13 @@ class PhotographerCard {
 
     createPhotographerCard() {
         const PhotographerCard = `
-            <a class="photographer__link" href="photographer.html?id=${this._photographer.id}" title="Voir la page de ${this._photographer.name}" target="_self">
+            <a class="photographer__link"
+                href="photographer.html?id=${this._photographer.id}"
+                title="Voir la page de ${this._photographer.name}"
+                target="_self"
+                role="${this._photographer.name}">
                 <div class="photographer__img-mask">
-                    <img src="${this._photographer.portrait}" alt="${this._photographer.name}"/>
+                    <img src="${this._photographer.portrait}"/>
                 </div>
                 <h2 class="photographer__name">${this._photographer.name}</h2>
             </a>
