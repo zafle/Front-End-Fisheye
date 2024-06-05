@@ -1,7 +1,7 @@
 // Model for Photographer Datas to display on home page
 
 class PhotographerDatas {
-    /** Assign photographers datas to variables
+    /** Assign photographers datas to object properties
      *
      * @param {Array} photographer
      */

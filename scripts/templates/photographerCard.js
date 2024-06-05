@@ -9,6 +9,7 @@ class PhotographerCard {
         this.$article.classList.add('photographer__article')
     }
 
+    // create HTML content for photographerCard
     createPhotographerCard() {
         const PhotographerCard = `
             <a class="photographer__link"

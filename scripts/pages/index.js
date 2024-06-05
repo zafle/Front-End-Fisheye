@@ -14,7 +14,7 @@
         }
 
         async fetchPhotographers() {
-            const photographersData = await this._photographersApi.getPhotographersData()
+            const photographersData = await this._photographersApi.getAllPhotographersData()
             this._photographers = photographersData.map(photographer => new PhotographerDatas(photographer))
         }
 
@@ -24,7 +24,7 @@
 
             this._photographers.forEach(photographer => {
                 const Template = new PhotographerCard(photographer)
-                this.$photographersSection.appendChild(Template.createPhotographerCard())
+                this.$photographersSection.append(Template.createPhotographerCard())
             })
         }
     }
