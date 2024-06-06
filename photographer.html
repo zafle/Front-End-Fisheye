@@ -22,20 +22,20 @@
         <header role="banner" class="photograph-header">
           <button class="photograph-header__contact_button photograph-header__item" onclick="displayModal()">Contactez-moi</button>
         </header>
-        <section class="medias__filters">
-          <h2>trier par</h2>
-          <ul>
-            <li>
-              <button>Popularité</button>
+        <section class="medias-filters">
+          <h2 id="medias-filters__label" aria-label="Order by">Trier par</h2>
+          <div class="medias-filters__list">
+            <button role="button" aria-haspopup="listbox" aria-expanded aria-selected aria-labelledby="#medias-filters_label">
+              Popularité
               <i class="fa-solid fa-chevron-down"></i>
-            </li>
-            <li>
-              <button>Date</button>
-            </li>
-            <li>
-              <button>Titre</button>
-            </li>
-          </ul>
+            </button>
+            <button role="listbox" aria-activedescendant aria-labelledby="#medias-filters_label" aria-hidden="true">
+              Date
+            </button>
+            <button role="listbox" aria-activedescendant aria-labelledby="#medias-filters_label" aria-hidden="true">
+              Titre
+            </button>
+          </div>
         </section>
         <section class="media__section"></section>
       </main>

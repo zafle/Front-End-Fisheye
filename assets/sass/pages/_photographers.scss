@@ -1,12 +1,13 @@
 /* ####### PHOTOGRAPHER ####### */
 .photograph-header {
-    background-color: #FAFAFA;
+    background-color: $light-grey;
     padding: 55px 50px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     gap: 70px;
     align-items: center;
+    margin-bottom: 30px;
 
     &__title {
         font-size: rem(64);
@@ -27,7 +28,7 @@
 
     &__contact_button {
         font-size: rem(20);
-        font-weight: $bold;
+        font-weight: $medium;
         color: white;
         padding: 11px;
         width: 170px;
@@ -41,6 +42,55 @@
         background-color: $peach;
         color: black;
     }
+}
+
+.medias-filters {
+    display: flex;
+    margin-bottom: 55px;
+    position: relative;
+    width: 270px;
+    h2 {
+        font-size: rem(18);
+        font-weight: $bold;
+        margin-right: 25px;
+    }
+    &__list {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: -20px;
+        width: 170px;
+        background-color: $deep-red;
+        border-radius: 5px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+
+        button {
+            background-color: $deep-red;
+            color: white;
+            font-size: rem(18);
+            font-weight: $medium;
+            padding: 15px 10px;
+            border: none;
+            text-align: left;
+        }
+        button:nth-of-type(1) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button:nth-of-type(2) {
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+
+        }
+        // button:not(first-child) {
+        //     display: none;
+        // }
+
+    }
+
 }
 
 .media {
@@ -71,6 +121,7 @@
         color: $deep-red;
     }
     &__likes {
+        flex-shrink: 0;
         &__count {
             font-size: rem(24);
             font-weight: $medium;
