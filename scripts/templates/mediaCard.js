@@ -5,12 +5,12 @@ class MediaCard {
      */
     constructor(media) {
         this._media = media
-        this.$mediasSection = document.querySelector('.medias__section')
         this.$wrapper = document.createElement('article')
     }
 
     // create HTML content of the media card
     createMediaCard() {
+        this.$wrapper.classList.add('media__card')
         this.$wrapper.innerHTML = `
             ${this.visual()}
             <div class="media__infos">
@@ -19,11 +19,10 @@ class MediaCard {
                     <span class="media__likes__count">
                         ${this._media.likes}
                     </span>
-                    <i class="fa-solid fa-heart media__likes__icon" aria-label="likes"></i>
+                    <img class="media__likes__icon" alt="likes" src="/assets/icons/like.svg" />
                 </div>
             </div>
         `
-
         return this.$wrapper
     }
 }
@@ -68,7 +67,7 @@ class VideoCard extends MediaCard {
         const webmVideoLink = bareVideoLink[0] + ".webm"
 
         const visual = `
-        <video width=300 height="300">
+        <video class="media__visual">
             <source src="${this._media.mediaLink}">
             <source src="${ogvVideoLink}">
             <source src="${webmVideoLink}">

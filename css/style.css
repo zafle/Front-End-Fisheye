@@ -15,6 +15,10 @@ body {
 }
 
 /* ####### RESET ####### */
+* {
+  box-sizing: border-box;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 400;
@@ -45,7 +49,7 @@ img {
 }
 
 /* ####### HEADER ####### */
-header {
+.main-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -71,6 +75,7 @@ header h1 {
   gap: 75px;
   padding: 75px 0;
   text-align: center;
+  margin: 0 -52.5px;
 }
 .photographer__article {
   flex: 0 0 0;

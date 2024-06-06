@@ -31,7 +31,7 @@ class PhotographerDatas {
         return this._tagline
     }
     get price() {
-        return `${this._price}€/jour`
+        return `${this._price}€ / jour`
     }
     get portrait() {
         return `/assets/photographers/${this._portrait}`

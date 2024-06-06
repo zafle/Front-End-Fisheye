@@ -19,7 +19,7 @@ class PhotographerHeader {
             <p class="photograph-header__location">
                 ${this._photographer.city}, ${this._photographer.country}
             </p>
-            <p class="photographer-header__tagline">
+            <p class="photograph-header__tagline">
                 ${this._photographer.tagline}
             </p>
         `
@@ -30,8 +30,8 @@ class PhotographerHeader {
             </div>
         `
 
-        this.$infos.classList.add('photograph-header__infos')
-        this.$portrait.classList.add('photograph-header__portrait')
+        this.$infos.classList.add('photograph-header__infos', 'photograph-header__item')
+        this.$portrait.classList.add('photograph-header__portrait', 'photograph-header__item')
 
         this.$header.prepend(this.$infos)
         this.$header.append(this.$portrait)

@@ -12,24 +12,27 @@ class Medias {
         this._photographerId = id
         this._medias = []
         this._photographer = []
+        this._photographerLikes = 0
+        this._photographerPrice = ""
+        this._photographerGlobalInfo = new PhotographerGlobalInfo()
 
         //  DOM elements
-        this.$mediasSection = document.querySelector(".medias__section");
+        this.$mediasSection = document.querySelector(".media__section");
     }
 
-    // fetch medias from API
+    // fetch medias Infos from API
     async fetchMedias() {
         const mediasData = await this._mediasApi.getMediasData(this._photographerId)
         this._medias = mediasData.map(media => new MediaDatas(media))
     }
 
-    // fetch photographer from API
+    // fetch photographer infos from API
     async fetchPhotographer() {
         const photographer = await this._photographerApi.getSinglePhotographerData(this._photographerId)
         this._photographer = photographer.map(photographer => new PhotographerDatas(photographer))
     }
 
-    // display media cards on page
+    // display media cards and total likes on page
     async displayMediasCards() {
         await this.fetchMedias()
 
@@ -37,14 +40,24 @@ class Medias {
             const Template = new MediaFactory(media, media.mediaType)
             this.$mediasSection.append(Template.createMediaCard())
         })
+
+        // get array of likes
+        this._photographerLikes = this._medias.map(media => parseInt(media.likes))
+        // display total number of likes in aside section
+        this._photographerGlobalInfo.displayLikesInfo(this._photographerLikes)
     }
 
-    // display photographer's infos on page
+    // display photographer's header and price on page
     async displayPhotographerHeader() {
         await this.fetchPhotographer()
 
         const Template = new PhotographerHeader(this._photographer[0])
         Template.createHeader()
+
+        // get photographer price
+        this._photographerPrice = this._photographer[0].price
+        // display price in aside section
+        this._photographerGlobalInfo.displayPriceInfo(this._photographerPrice)
     }
 }
 

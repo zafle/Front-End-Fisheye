@@ -35,7 +35,6 @@ class PhotographersApi extends Api {
     async getSinglePhotographerData(id) {
         this._photographers = await this.getAllPhotographersData()
         this._photographer = this._photographers.filter(
-            // photographer => photographer.id === parseInt(id)
             photographer => photographer.id === id
         )
         return this._photographer

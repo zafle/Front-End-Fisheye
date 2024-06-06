@@ -15,6 +15,10 @@ body {
 }
 
 /* ####### RESET ####### */
+* {
+  box-sizing: border-box;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 400;
@@ -104,7 +108,7 @@ form input {
 }
 
 /* ####### HEADER ####### */
-header {
+.main-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -119,13 +123,30 @@ header {
 /* ####### PHOTOGRAPHER ####### */
 .photograph-header {
   background-color: #FAFAFA;
-  height: 300px;
-  margin: 0 100px;
+  padding: 55px 50px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  gap: 70px;
+  align-items: center;
 }
-
-.contact_button {
-  font-size: 20px;
-  font-weight: bold;
+.photograph-header__title {
+  font-size: 4rem;
+  color: #D3573C;
+  margin-bottom: 10px;
+}
+.photograph-header__location {
+  font-size: 1.5rem;
+  color: #901C1C;
+  margin-bottom: 20px;
+}
+.photograph-header__tagline {
+  font-size: 1.125rem;
+  color: #525252;
+}
+.photograph-header__contact_button {
+  font-size: 1.25rem;
+  font-weight: 700;
   color: white;
   padding: 11px;
   width: 170px;
@@ -134,4 +155,65 @@ header {
   background-color: #901C1C;
   border-radius: 5px;
   cursor: pointer;
+}
+.photograph-header__contact_button:hover {
+  background-color: #DB8876;
+  color: black;
+}
+
+.media__section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  -moz-column-gap: 95px;
+       column-gap: 95px;
+  row-gap: 30px;
+}
+.media__card {
+  flex: 0 0 0;
+  min-width: 350px;
+}
+.media__visual {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 350px;
+  height: 300px;
+  border-radius: 5px;
+}
+.media__infos {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.media__title {
+  font-size: 1.5rem;
+  color: #901C1C;
+}
+.media__likes__count {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #901C1C;
+}
+.media__likes__icon {
+  display: inline-block;
+}
+
+.global-info {
+  position: fixed;
+  bottom: 0;
+  right: 35px;
+  background-color: #DB8876;
+  border-radius: 5px 5px 0 0;
+  padding: 20px 30px;
+  width: 375px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.global-info__likes {
+  display: flex;
+}
+.global-info__likes img {
+  margin-left: 7px;
 }/*# sourceMappingURL=style_photographer.css.map */

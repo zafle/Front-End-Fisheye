@@ -13,14 +13,14 @@
   </head>
   <body>
     <div class="main-container">
-      <header role="banner">
+      <header role="banner" class="main-header">
         <a href="index.html" target="_self" title="Accueil FishEye">
           <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
         </a>
       </header>
       <main id="main" role="main">
         <header role="banner" class="photograph-header">
-          <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+          <button class="photograph-header__contact_button photograph-header__item" onclick="displayModal()">Contactez-moi</button>
         </header>
         <section class="medias__filters">
           <h2>trier par</h2>
@@ -37,7 +37,7 @@
             </li>
           </ul>
         </section>
-        <section class="medias__section"></section>
+        <section class="media__section"></section>
       </main>
     </div>
     <div id="contact_modal">
@@ -65,6 +65,7 @@
     <!-- Templates -->
     <script src="scripts/templates/mediaCard.js"></script>
     <script src="scripts/templates/photographerHeader.js"></script>
+    <script src="scripts/templates/photographerGlobalInfo.js"></script>
     <!-- Utils -->
     <script src="/scripts/utils/contactForm.js"></script>
     <!-- Pages -->
