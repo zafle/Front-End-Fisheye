@@ -36,12 +36,40 @@ img {
   margin: 0;
 }
 
+/* ####### BUTTONS ####### */
+button.btn-style {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.btn-hover:hover {
+  background-color: #DB8876;
+  color: black;
+}
+
 /* ####### CONTACT MODAL ####### */
 #contact_modal {
   display: none;
 }
 
-.modal {
+.contact_modal {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(196, 196, 196, 0.4);
+}
+.contact_modal__modal {
   border-radius: 5px;
   background-color: #DB8876;
   width: 50%;
@@ -52,43 +80,37 @@ img {
   padding: 35px;
   margin: auto;
 }
-
-.modal header {
+.contact_modal__modal header {
+  display: flex;
   justify-content: space-between;
   width: 100%;
 }
-
-.modal header img {
+.contact_modal__modal header img {
   cursor: pointer;
 }
-
-.modal header h2 {
-  font-size: 64px;
+.contact_modal__modal header h2 {
+  font-size: 4rem;
   font-weight: normal;
   text-align: center;
 }
-
-form {
+.contact_modal__modal form {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
 }
-
-form label {
+.contact_modal__modal form label {
   color: #312E2E;
   font-size: 36px;
 }
-
-form div {
+.contact_modal__modal form div {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: self-start;
   margin-bottom: 26px;
 }
-
-form input {
+.contact_modal__modal form input {
   width: 100%;
   height: 68px;
   border: none;
@@ -147,58 +169,37 @@ form input {
   font-size: 1.125rem;
   color: #525252;
 }
-.photograph-header__contact_button {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: #901C1C;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.photograph-header__contact_button:hover {
-  background-color: #DB8876;
-  color: black;
-}
 
 .medias-filters {
   display: flex;
   margin-bottom: 55px;
   position: relative;
-  width: 270px;
+  width: 280px;
 }
 .medias-filters h2 {
   font-size: 1.125rem;
   font-weight: 700;
-  margin-right: 25px;
 }
 .medias-filters__list {
   position: absolute;
   top: 0;
   right: 0;
   margin-top: -20px;
-  width: 170px;
   background-color: #901C1C;
   border-radius: 5px;
-  padding: 10px;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
 }
 .medias-filters__list button {
-  background-color: #901C1C;
-  color: white;
   font-size: 1.125rem;
-  font-weight: 600;
-  padding: 15px 10px;
-  border: none;
+  border-radius: 0;
   text-align: left;
 }
 .medias-filters__list button:nth-of-type(1) {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .medias-filters__list button:nth-of-type(2) {
   border-top: 1px solid white;

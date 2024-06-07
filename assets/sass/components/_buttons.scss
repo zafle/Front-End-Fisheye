@@ -1,0 +1,17 @@
+/* ####### BUTTONS ####### */
+button.btn-style {
+    font-size: rem(20);
+    font-weight: $medium;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: $deep-red;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button.btn-hover:hover {
+    background-color: $peach;
+    color: black;
+}

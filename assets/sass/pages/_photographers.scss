@@ -25,59 +25,37 @@
         font-size: rem(18);
         color: $dark-grey;
     }
-
-    &__contact_button {
-        font-size: rem(20);
-        font-weight: $medium;
-        color: white;
-        padding: 11px;
-        width: 170px;
-        height: 70px;
-        border: none;
-        background-color: $deep-red;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    &__contact_button:hover {
-        background-color: $peach;
-        color: black;
-    }
 }
 
 .medias-filters {
     display: flex;
     margin-bottom: 55px;
     position: relative;
-    width: 270px;
+    width: 280px;
     h2 {
         font-size: rem(18);
         font-weight: $bold;
-        margin-right: 25px;
     }
     &__list {
         position: absolute;
         top: 0;
         right: 0;
         margin-top: -20px;
-        width: 170px;
         background-color: $deep-red;
         border-radius: 5px;
-        padding: 10px;
+        padding: 0 10px;
         display: flex;
         flex-direction: column;
 
         button {
-            background-color: $deep-red;
-            color: white;
             font-size: rem(18);
-            font-weight: $medium;
-            padding: 15px 10px;
-            border: none;
+            border-radius: 0;
             text-align: left;
         }
         button:nth-of-type(1) {
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         button:nth-of-type(2) {
