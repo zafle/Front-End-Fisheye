@@ -46,7 +46,10 @@ class Medias {
         this._photographerGlobalInfo.displayLikesInfo(this._photographerLikes)
     }
 
-    // display photographer's header and price on page
+    // display photographer's header
+    // display price on page
+    // add eventlistener on contact button's header
+    // display succes message if form has been send
     async displayPhotographerHeader() {
         await this.fetchPhotographer()
 
@@ -58,9 +61,11 @@ class Medias {
         this._photographerGlobalInfo.displayPriceInfo(this._photographerPrice)
 
         // add eventListener on contact button
+        // display succes message if form has been send
         const photographerName = this._photographer[0].name
         const contactForm = new ContactForm(this._photographerId, photographerName)
         contactForm.runContactForm()
+        contactForm.displaySuccessMessage()
     }
 }
 

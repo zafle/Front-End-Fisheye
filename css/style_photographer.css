@@ -100,6 +100,10 @@ button.btn-hover:hover {
   flex-direction: column;
   align-items: flex-start;
 }
+.contact_modal__modal form .formData {
+  position: relative;
+  width: 100%;
+}
 .contact_modal__modal form label {
   color: #312E2E;
   font-size: 2.25rem;
@@ -125,6 +129,30 @@ button.btn-hover:hover {
 .contact_modal__modal form .submit_button {
   font-size: 1.125rem;
   margin-top: 25px;
+}
+.contact_modal__modal form .formData > input[aria-invalid=true],
+.contact_modal__modal form .formData > input[aria-invalid=true]:focus-visible,
+.contact_modal__modal form .formData > textarea[aria-invalid=true],
+.contact_modal__modal form .formData > textarea[aria-invalid=true]:focus-visible {
+  border: 4px solid #FF2C00;
+  outline: none;
+}
+.contact_modal__modal form .formData > input[aria-invalid=true],
+.contact_modal__modal form .formData > input[aria-invalid=true]:focus-visible {
+  height: 80px;
+}
+.contact_modal__modal form .error {
+  color: #FF2C00;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 7px;
+  margin-left: -15px;
+  text-align: right;
+  width: 100%;
+}
+.contact_modal__modal form textarea[aria-invalid=true] + .error {
+  margin-bottom: 10px;
 }
 
 .photographer__img-mask {

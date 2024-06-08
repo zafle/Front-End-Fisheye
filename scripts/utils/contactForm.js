@@ -1,4 +1,9 @@
 class ContactForm {
+    /** Display, check and send contact form
+     *
+     * @param {string} id
+     * @param {string} name
+     */
     constructor(id, name) {
         this._photographerId = id
         this._photographerName = name
@@ -143,6 +148,22 @@ class ContactForm {
         }
     }
 
+    displaySuccessMessage() {
+
+        // check if form has been send
+        const urlSearchParams = new URL(document.location).searchParams
+        const userFirstName = urlSearchParams.get("firstname")
+
+        if (userFirstName) {
+            console.log("send")
+        } else {
+            console.log("not send")
+        }
+        const photographerId = parseInt(urlSearchParams.get("id"))
+
+
+    }
+
     // add event listeners on all events
     runContactForm() {
         // open modal
@@ -164,6 +185,7 @@ class ContactForm {
             event.preventDefault()
             this.submitContactForm()
         })
+        // if form has been send
     }
 
 

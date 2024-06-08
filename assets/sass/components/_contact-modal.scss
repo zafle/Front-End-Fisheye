@@ -45,6 +45,11 @@
             flex-direction: column;
             align-items: flex-start;
 
+            .formData {
+                position: relative;
+                width: 100%;
+            }
+
             label {
                 color: $light-black;
                 font-size: rem(36);
@@ -74,6 +79,34 @@
             .submit_button {
                 font-size: rem(18);
                 margin-top: 25px;
+            }
+
+            // error message
+
+            .formData > input[aria-invalid="true"],
+            .formData > input[aria-invalid="true"]:focus-visible,
+            .formData > textarea[aria-invalid="true"],
+            .formData > textarea[aria-invalid="true"]:focus-visible {
+                border: 4px solid $red-error;
+                outline: none;
+            }
+            .formData > input[aria-invalid="true"],
+            .formData > input[aria-invalid="true"]:focus-visible {
+                height: 80px;
+            }
+            .error {
+                color: $red-error;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin-bottom: 7px;
+                margin-left: -15px;
+                text-align: right;
+                width: 100%;
+                }
+                textarea[aria-invalid="true"] + .error {
+                margin-bottom: 10px;
+
             }
 
         }
