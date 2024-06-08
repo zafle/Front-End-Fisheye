@@ -10,31 +10,32 @@
     justify-content: center;
     align-items: center;
     background-color: $transparent-grey;
+    overflow: auto;
 
     &__modal {
+        position: relative;
         border-radius: 5px;
         background-color: #DB8876;
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        padding: 35px;
+        width: 670px;
+        display: block;
+        padding: 15px 35px 35px 35px;
         margin: auto;
+        border: none;
+        box-shadow: -5px 10px 30px rgba(0, 0, 0, .25);
 
         header {
             display: flex;
             justify-content: space-between;
-            width: 100%;
+            align-items: flex-start;
+            margin-bottom: 20px;
 
             img {
+                margin-top: 20px;
                 cursor: pointer;
             }
 
-            h2 {
+            h1 {
                 font-size: rem(64);
-                font-weight: normal;
-                text-align: center;
             }
         }
 
@@ -45,24 +46,36 @@
             align-items: flex-start;
 
             label {
-                color: #312E2E;
-                font-size: 36px;
+                color: $light-black;
+                font-size: rem(36);
             }
 
-            div {
-                display: flex;
-                flex-direction: column;
+            input, textarea {
+                font-size: rem(24);
                 width: 100%;
-                align-items: self-start;
-                margin-bottom: 26px;
-            }
-
-            input {
-                width: 100%;
-                height: 68px;
+                padding: 10px;
                 border: none;
                 border-radius: 5px;
             }
+
+            input {
+                height: 68px;
+            }
+
+            textarea {
+                height: 170px;
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            #message-label {
+                margin-top: 10px;
+            }
+            .submit_button {
+                font-size: rem(18);
+                margin-top: 25px;
+            }
+
         }
     }
 }

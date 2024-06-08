@@ -41,9 +41,8 @@ class Medias {
             this.$mediasSection.append(Template.createMediaCard())
         })
 
-        // get array of likes
+        // get array of likes and display total number of likes in aside section
         this._photographerLikes = this._medias.map(media => parseInt(media.likes))
-        // display total number of likes in aside section
         this._photographerGlobalInfo.displayLikesInfo(this._photographerLikes)
     }
 
@@ -54,10 +53,14 @@ class Medias {
         const Template = new PhotographerHeader(this._photographer[0])
         Template.createHeader()
 
-        // get photographer price
+        // get photographer price and display price in aside section
         this._photographerPrice = this._photographer[0].price
-        // display price in aside section
         this._photographerGlobalInfo.displayPriceInfo(this._photographerPrice)
+
+        // add eventListener on contact button
+        const photographerName = this._photographer[0].name
+        const contactForm = new ContactForm(this._photographerId, photographerName)
+        contactForm.runContactForm()
     }
 }
 

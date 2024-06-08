@@ -68,30 +68,31 @@ button.btn-hover:hover {
   justify-content: center;
   align-items: center;
   background-color: rgba(196, 196, 196, 0.4);
+  overflow: auto;
 }
 .contact_modal__modal {
+  position: relative;
   border-radius: 5px;
   background-color: #DB8876;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 35px;
+  width: 670px;
+  display: block;
+  padding: 15px 35px 35px 35px;
   margin: auto;
+  border: none;
+  box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.25);
 }
 .contact_modal__modal header {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 .contact_modal__modal header img {
+  margin-top: 20px;
   cursor: pointer;
 }
-.contact_modal__modal header h2 {
+.contact_modal__modal header h1 {
   font-size: 4rem;
-  font-weight: normal;
-  text-align: center;
 }
 .contact_modal__modal form {
   display: flex;
@@ -101,20 +102,29 @@ button.btn-hover:hover {
 }
 .contact_modal__modal form label {
   color: #312E2E;
-  font-size: 36px;
+  font-size: 2.25rem;
 }
-.contact_modal__modal form div {
-  display: flex;
-  flex-direction: column;
+.contact_modal__modal form input, .contact_modal__modal form textarea {
+  font-size: 1.5rem;
   width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-.contact_modal__modal form input {
-  width: 100%;
-  height: 68px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
+}
+.contact_modal__modal form input {
+  height: 68px;
+}
+.contact_modal__modal form textarea {
+  height: 170px;
+  min-width: 100%;
+  max-width: 100%;
+}
+.contact_modal__modal form #message-label {
+  margin-top: 10px;
+}
+.contact_modal__modal form .submit_button {
+  font-size: 1.125rem;
+  margin-top: 25px;
 }
 
 .photographer__img-mask {

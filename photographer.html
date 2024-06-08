@@ -20,9 +20,6 @@
       </header>
       <main id="main" role="main">
         <header role="banner" class="photograph-header">
-          <button class="btn-style btn-hover photograph-header__item" aria-label="Contact me" onclick="displayModal()">
-            Contactez-moi
-          </button>
         </header>
         <section class="medias-filters">
           <h2 id="medias-filters__label" aria-label="Order by">Trier par</h2>
@@ -31,10 +28,10 @@
               Popularité
               <i class="fa-solid fa-chevron-down"></i>
             </button>
-            <button class="btn-style" role="listbox" aria-activedescendant aria-labelledby="#medias-filters_label" aria-hidden="true">
+            <button class="btn-style" role="listbox" aria-activedescendant aria-labelledby="medias-filters_label" aria-hidden="true">
               Date
             </button>
-            <button class="btn-style" role="listbox" aria-activedescendant aria-labelledby="#medias-filters_label" aria-hidden="true">
+            <button class="btn-style" role="listbox" aria-activedescendant aria-labelledby="medias-filters_label" aria-hidden="true">
               Titre
             </button>
           </div>
@@ -43,19 +40,32 @@
       </main>
     </div>
     <div id="contact_modal" class="contact_modal">
-			<div class="contact_modal__modal">
+			<dialog class="contact_modal__modal" aria-labelledby="contact_title" autofocus>
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h1 id="contact_title" aria-label="">Contactez-moi</h1>
+          <img src="assets/icons/close.svg" alt="Close Contact form" id="close_modal"/>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_modal__contact_button btn-style">Envoyer</button>
+				<form id="contact_form" method="get" action="">
+          <input type="hidden" id="photographer-id" name="id">
+          <div class="formData">
+            <label for="firstname" id="firstname-label" aria-label="First name">Prénom</label>
+            <input type="text" id="firstname" name="firstname" aria-labelledby="firstname-label">
+          </div>
+          <div class="formData">
+            <label for="lastname" id="lastname-label" aria-label="Last name">Nom</label>
+            <input type="text" id="lastname" name="lastname" aria-labelledby="lastname-label">
+          </div>
+          <div class="formData">
+            <label for="email" id="email-label">Email</label>
+            <input type="email" id="email" name="email" aria-labelledby="email-label">
+          </div>
+          <div class="formData">
+            <label for="message" id="message-label" aria-label="Your message">Votre message</label>
+            <textarea name="message" id="message" aria-labelledby="message-label"></textarea>
+          </div>
+          <button type="submit" class="submit_button btn-style" aria-label="Send">Envoyer</button>
 				</form>
-			</div>
+			</dialog>
 		</div>
     <!-- Api -->
     <script src="/scripts/api/api.js"></script>

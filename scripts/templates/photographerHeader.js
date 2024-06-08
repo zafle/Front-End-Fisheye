@@ -24,9 +24,8 @@ class PhotographerHeader {
             </div>
             <button
                 class="btn-style btn-hover photograph-header__item"
-                aria-label="Contact me"
-                data-id="${this._photographer.id}"
-                onclick="displayModal()">
+                id="contact_button"
+                aria-label="Contact me">
                 Contactez-moi
             </button>
             <div class="photograph-header__portrait photograph-header__item">
