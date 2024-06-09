@@ -65,7 +65,7 @@ class Medias {
         const photographerName = this._photographer[0].name
         const contactForm = new ContactForm(this._photographerId, photographerName)
         contactForm.runContactForm()
-        contactForm.displaySuccessMessage()
+        // contactForm.displaySuccessMessage()
     }
 }
 

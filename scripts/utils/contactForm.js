@@ -9,6 +9,7 @@ class ContactForm {
         this._photographerName = name
 
         //  DOM Elements
+        this.$mainContainer = document.querySelector('.main-container')
         this.$contactButton = document.getElementById('contact_button')
         // modal
         this.$modal = document.getElementById('contact_modal')
@@ -27,15 +28,26 @@ class ContactForm {
 
     // open and close modal
     displayModal() {
+        // accessibility
+        this.$mainContainer.setAttribute('aria-hidden', true)
+        this.$mainContainer.setAttribute('aria-disabled', true)
+        this.$modal.setAttribute('aria-hidden', false)
+
         this.$modal.style.display = "flex"
         this.$title.innerHTML = `
-            Contactez-moi<br>
-            ${this._photographerName}
+        Contactez-moi<br>
+        ${this._photographerName}
         `
         this.$inputId.value = `${this._photographerId}`
+        this.$closeModal.focus()
     }
 
     closeModal() {
+        // accessibility
+        this.$mainContainer.setAttribute('aria-hidden', false)
+        this.$mainContainer.setAttribute('aria-disabled', false)
+        this.$modal.setAttribute('aria-hidden', true)
+
         this.$modal.style.display = "none";
 
         // if success message is displayed
@@ -46,6 +58,16 @@ class ContactForm {
             const location = `photographer.html?id=${this._photographerId}`
             window.location.replace(location)
         }
+    }
+
+    closeModalOnEscape() {
+        // Close modal when escape key is pressed
+        document.addEventListener('keydown', e => {
+            const keyCode = e.code
+            if (this.$modal.getAttribute('aria-hidden') === 'false' && keyCode === "Escape") {
+                this.closeModal()
+            }
+        })
     }
 
     /**
@@ -153,6 +175,8 @@ class ContactForm {
         errors = this.validateInput(this.$email, this.validateEmail, errors)
         errors = this.validateInput(this.$message, this.validateMessage, errors)
 
+        this.$closeModal.focus()
+
         // if no errors, send the form
         if (errors === 0) {
             this.$contactForm.submit();
@@ -197,7 +221,15 @@ class ContactForm {
             event.preventDefault()
             this.submitContactForm()
         })
-        // if form has been send
+
+        // close modal on escape key
+        this.closeModalOnEscape()
+        // if form has been send display success message
+        this.displaySuccessMessage()
+
+
+
+
     }
 
 

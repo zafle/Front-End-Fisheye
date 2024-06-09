@@ -87,9 +87,8 @@ button.btn-hover:hover {
   align-items: flex-start;
   margin-bottom: 20px;
 }
-.contact_modal__modal header img {
+.contact_modal__modal header #close_modal {
   margin-top: 20px;
-  cursor: pointer;
 }
 .contact_modal__modal header h1 {
   font-size: 4rem;

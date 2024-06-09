@@ -39,11 +39,12 @@
         <section class="media__section"></section>
       </main>
     </div>
-    <div id="contact_modal" class="contact_modal">
-			<dialog class="contact_modal__modal" aria-labelledby="contact_title" autofocus>
+    <div id="contact_modal" class="contact_modal" aria-hidden="true">
+			<dialog class="contact_modal__modal" aria-labelledby="contact_title">
 				<header>
-          <h1 id="contact_title" aria-label="">Contactez-moi</h1>
-          <img src="assets/icons/close.svg" alt="Close Contact form" id="close_modal"/>
+          <h1 id="contact_title">Contactez-moi</h1>
+          <label for="close_modal">Close-Modal</label>
+          <input type="image" src="assets/icons/close.svg" aria-label="Close Contact form" id="close_modal">
         </header>
 				<form id="contact_form" method="get" action="">
           <input type="hidden" id="photographer-id" name="id">
