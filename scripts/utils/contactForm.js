@@ -9,7 +9,7 @@ class ContactForm {
         this._photographerName = name
 
         //  DOM Elements
-        this.$mainContainer = document.querySelector('.main-container')
+        // this.$mainContainer = document.querySelector('.main-container')
         this.$contactButton = document.getElementById('contact_button')
         // modal
         this.$modal = document.getElementById('contact_modal')
@@ -24,50 +24,36 @@ class ContactForm {
         this.$message = document.getElementById('message')
         this.$inputId = document.getElementById('photographer-id')
         this.$submit = document.querySelector('.submit_button')
+
+        // Modal control / Modal Observers
+        this.ModalControl = new ModalControl(this.$modal, this.$closeModal)
     }
 
-    // open and close modal
     displayModal() {
-        // accessibility
-        this.$mainContainer.setAttribute('aria-hidden', true)
-        this.$mainContainer.setAttribute('aria-disabled', true)
-        this.$modal.setAttribute('aria-hidden', false)
+        this.ModalControl.displayModal()
 
-        this.$modal.style.display = "flex"
-        this.$title.innerHTML = `
-        Contactez-moi<br>
-        ${this._photographerName}
-        `
+        // add photographer's name in header
+        this.$title.innerHTML = `Contactez-moi<br>${this._photographerName}`
+
+        // add photographer's ID in the form's hidden input
         this.$inputId.value = `${this._photographerId}`
-        this.$closeModal.focus()
     }
 
     closeModal() {
-        // accessibility
-        this.$mainContainer.setAttribute('aria-hidden', false)
-        this.$mainContainer.setAttribute('aria-disabled', false)
-        this.$modal.setAttribute('aria-hidden', true)
-
-        this.$modal.style.display = "none";
+        this.ModalControl.closeModal()
 
         // if success message is displayed
         const $successMessage = document.querySelector('.success-message')
         if ($successMessage) {
+
+            // remove success message and display contact form
             $successMessage.remove()
             this.$contactForm.style.display ="block"
-            const location = `photographer.html?id=${this._photographerId}`
-            window.location.replace(location)
-        }
-    }
 
-    closeModalOnEscape() {
-        // Close modal when escape key is pressed
-        document.addEventListener('keydown', e => {
-            const keyCode = e.code
-            if (this.$modal.getAttribute('aria-hidden') === 'false' && keyCode === "Escape") {
-                this.closeModal()
-            }
-        })
+            // delete parameters from URL whithout reloading the page
+            const newLocation = `photographer.html?id=${this._photographerId}`
+            window.history.replaceState(null, '', "/" + newLocation)
+        }
     }
 
     /**
@@ -99,7 +85,7 @@ class ContactForm {
         }
     }
 
-    // Display and erase error messges
+    // Display and erase error messages
 
     /**
      * This function displays an error message
@@ -156,7 +142,7 @@ class ContactForm {
     }
 
     /**
-     * This function adds event listener on input's change event to check datas
+     * This function adds event listener on "change" to specified input's to validate it
      * @param {HTMLElement} input
      * @param {Function} validateFunction
      */
@@ -200,16 +186,22 @@ class ContactForm {
         }
     }
 
-    // add event listeners on all events
+    // general function to call
     runContactForm() {
+
+        // Add event listener to close modal when escape
+        this.ModalControl.closeModalOnEscape()
+
         // open modal
         this.$contactButton.addEventListener("click", () => {
             this.displayModal()
         })
+
         // close modal
         this.$closeModal.addEventListener("click", () => {
             this.closeModal()
         })
+
         // check and display error messages on change
         this.addListenerOnChange(this.$firstName, this.validateFirstName)
         this.addListenerOnChange(this.$lastName, this.validateLastName)
@@ -222,14 +214,8 @@ class ContactForm {
             this.submitContactForm()
         })
 
-        // close modal on escape key
-        this.closeModalOnEscape()
         // if form has been send display success message
         this.displaySuccessMessage()
-
-
-
-
     }
 
 

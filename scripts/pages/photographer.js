@@ -49,7 +49,6 @@ class Medias {
     // display photographer's header
     // display price on page
     // add eventlistener on contact button's header
-    // display succes message if form has been send
     async displayPhotographerHeader() {
         await this.fetchPhotographer()
 
