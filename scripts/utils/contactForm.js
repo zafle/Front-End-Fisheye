@@ -12,6 +12,7 @@ class ContactForm {
         this.$contactButton = document.getElementById('contact_button')
         // modal
         this.$modal = document.getElementById('contact_modal')
+        this.$dialog = document.querySelector('.contact_modal__modal')
         this.$closeModal = document.getElementById('close_modal')
         this.$title = document.getElementById('contact_title')
         // form
@@ -36,6 +37,15 @@ class ContactForm {
 
     closeModal() {
         this.$modal.style.display = "none";
+
+        // if success message is displayed
+        const $successMessage = document.querySelector('.success-message')
+        if ($successMessage) {
+            $successMessage.remove()
+            this.$contactForm.style.display ="block"
+            const location = `photographer.html?id=${this._photographerId}`
+            window.location.replace(location)
+        }
     }
 
     /**
@@ -97,6 +107,7 @@ class ContactForm {
 
         if ($parent.contains($spanError)) {
             $spanError.remove()
+            input.removeAttribute('aria-invalid')
         }
     }
 
@@ -148,6 +159,7 @@ class ContactForm {
         }
     }
 
+    // display success message if form has been send
     displaySuccessMessage() {
 
         // check if form has been send
@@ -155,13 +167,13 @@ class ContactForm {
         const userFirstName = urlSearchParams.get("firstname")
 
         if (userFirstName) {
-            console.log("send")
-        } else {
-            console.log("not send")
+            this.displayModal()
+            this.$contactForm.style.display = "none"
+            const $successMessage = document.createElement('p')
+            $successMessage.classList.add('success-message')
+            $successMessage.innerText = `Votre message a été envoyé avec succès !`
+            this.$dialog.append($successMessage)
         }
-        const photographerId = parseInt(urlSearchParams.get("id"))
-
-
     }
 
     // add event listeners on all events
