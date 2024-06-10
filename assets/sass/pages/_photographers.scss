@@ -71,42 +71,45 @@
 
 }
 
-.media {
-    &__section {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: start;
-        column-gap: 95px;
-        row-gap: 30px;
-    }
-    &__card {
-        flex: 0 0 0;
-        min-width: 350px;
-    }
-    &__visual {
-        object-fit: cover;
-        width: 350px;
-        height: 300px;
-        border-radius: 5px;
-    }
-    &__infos {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-    }
-    &__title {
-        font-size: rem(24);
-        color: $deep-red;
-    }
-    &__likes {
-        flex-shrink: 0;
-        &__count {
+.media__section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    column-gap: 95px;
+    row-gap: 30px;
+
+    .media {
+
+        &__card {
+            flex: 0 0 0;
+            min-width: 350px;
+        }
+        &__visual {
+            object-fit: cover;
+            width: 350px;
+            height: 300px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        &__infos {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        &__title {
             font-size: rem(24);
-            font-weight: $medium;
             color: $deep-red;
         }
-        &__icon {
-            display: inline-block;
+        &__likes {
+            flex-shrink: 0;
+            &__count {
+                font-size: rem(24);
+                font-weight: $medium;
+                color: $deep-red;
+            }
+            &__icon {
+                display: inline-block;
+            }
         }
     }
 }

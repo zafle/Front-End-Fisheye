@@ -242,7 +242,7 @@ button.btn-hover:hover {
 .slider__item {
   flex: 1 0 100%;
 }
-.slider__visual {
+.slider .media__visual {
   width: 100%;
   height: calc(100vh - 120px);
   -o-object-fit: cover;
@@ -339,35 +339,36 @@ button.btn-hover:hover {
        column-gap: 95px;
   row-gap: 30px;
 }
-.media__card {
+.media__section .media__card {
   flex: 0 0 0;
   min-width: 350px;
 }
-.media__visual {
+.media__section .media__visual {
   -o-object-fit: cover;
      object-fit: cover;
   width: 350px;
   height: 300px;
   border-radius: 5px;
+  cursor: pointer;
 }
-.media__infos {
+.media__section .media__infos {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
-.media__title {
+.media__section .media__title {
   font-size: 1.5rem;
   color: #901C1C;
 }
-.media__likes {
+.media__section .media__likes {
   flex-shrink: 0;
 }
-.media__likes__count {
+.media__section .media__likes__count {
   font-size: 1.5rem;
   font-weight: 600;
   color: #901C1C;
 }
-.media__likes__icon {
+.media__section .media__likes__icon {
   display: inline-block;
 }
 

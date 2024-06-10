@@ -5,14 +5,21 @@ class MediaCard {
      */
     constructor(media) {
         this._media = media
-        this.$wrapper = document.createElement('article')
     }
 
     // create HTML content of the media card
     createMediaCard() {
-        this.$wrapper.classList.add('media__card')
-        this.$wrapper.innerHTML = `
-            ${this.visual()}
+        const wrapper = document.createElement('article')
+        wrapper.classList.add('media__card')
+        wrapper.innerHTML = `
+            <a href=""
+                class="media__lightbox-link"
+                aria-label="${this._media.title}, closeup view"
+                data-id="${this._media.id}"
+                title="Ouvrir dans la visionneuse">
+                ${this.visual()}
+            </a>
+
             <div class="media__infos">
                 <h3 class="media__title">${this._media.title}</h3>
                 <div class="media__likes">
@@ -23,7 +30,26 @@ class MediaCard {
                 </div>
             </div>
         `
-        return this.$wrapper
+        return wrapper
+    }
+
+    // create media slide
+    createMediaSlide(mediaId) {
+        const liItem = document.createElement('li')
+        liItem.classList.add('slider__item')
+
+        if (parseInt(mediaId) === this._media.id) {
+            liItem.classList.add('current-view')
+            liItem.setAttribute('aria-hidden', 'false')
+        } else {
+            liItem.setAttribute('aria-hidden', 'true')
+        }
+
+        liItem.innerHTML = `
+            ${this.visual()}
+            <h3 class="slider__title">${this._media.title}</h3>
+        `
+        return liItem
     }
 }
 
@@ -42,7 +68,7 @@ class ImageCard extends MediaCard {
             <img class="media__visual"
                 src="${this._media.mediaLink}"
                 alt="${this._media.title}"
-                aria-label="${this._media.title}, closeup view"
+                data-id="${this._media.id}"
             />
         `
         return visual
@@ -67,12 +93,13 @@ class VideoCard extends MediaCard {
         const webmVideoLink = bareVideoLink[0] + ".webm"
 
         const visual = `
-        <video class="media__visual video-visual">
-            <source src="${this._media.mediaLink}">
-            <source src="${ogvVideoLink}">
-            <source src="${webmVideoLink}">
-            Your browser doesn't support the video tag.
-        </video>
+            <video class="media__visual video-visual"
+                    data-id="${this._media.id}">
+                <source src="${this._media.mediaLink}">
+                <source src="${ogvVideoLink}">
+                <source src="${webmVideoLink}">
+                Your browser doesn't support the video tag.
+            </video>
         `
         return visual
     }

@@ -48,7 +48,6 @@ class Medias {
         // run lightbox
         const lightbox = new LightBox(this._medias)
         lightbox.runLightbox()
-
     }
 
     // display photographer's header

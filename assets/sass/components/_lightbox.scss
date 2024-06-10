@@ -65,7 +65,14 @@
         flex: 1 0 100%;
     }
 
-    &__visual {
+    // &__visual {
+    //     width: 100%;
+    //     height: calc(100vh - 120px);
+    //     object-fit: cover;
+    //     border-radius: 5px;
+    // }
+
+    .media__visual {
         width: 100%;
         height: calc(100vh - 120px);
         object-fit: cover;
