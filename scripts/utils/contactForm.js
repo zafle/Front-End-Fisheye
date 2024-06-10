@@ -13,8 +13,8 @@ class ContactForm {
         this.$contactButton = document.getElementById('contact_button')
         // modal
         this.$modal = document.getElementById('contact_modal')
-        this.$dialog = document.querySelector('.contact_modal__modal')
-        this.$closeModal = document.getElementById('close_modal')
+        this.$dialog = document.querySelector('.contact_modal__dialog')
+        this.$closeModal = document.getElementById('close_contact-form')
         this.$title = document.getElementById('contact_title')
         // form
         this.$contactForm = document.getElementById('contact_form')

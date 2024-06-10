@@ -40,11 +40,11 @@
       </main>
     </div>
     <div id="contact_modal" class="contact_modal" aria-hidden="true">
-			<dialog class="contact_modal__modal" aria-labelledby="contact_title">
+			<dialog class="contact_modal__dialog" aria-labelledby="contact_title">
 				<header>
           <h1 id="contact_title">Contactez-moi</h1>
-          <label for="close_modal">Close-Modal</label>
-          <input type="image" src="assets/icons/close.svg" aria-label="Close Contact form" id="close_modal">
+          <label for="close_contact-form" id="close_contact-form-label" aria-label="Close Contact Form" class="sr-only">Fermer le formulaire de contact</label>
+          <input type="image" src="assets/icons/close.svg" aria-labelledby="close_contact-form-label" id="close_contact-form">
         </header>
 				<form id="contact_form" method="get" action="">
           <input type="hidden" id="photographer-id" name="id">
@@ -68,6 +68,25 @@
 				</form>
 			</dialog>
 		</div>
+    <div id="lightbox_modal" class="lightbox_modal" aria-hidden="true">
+      <dialog class="lightbox_modal__dialog" aria-label="Image closeup view">
+        <label for="close_lightbox" id="close_lightbox-label" aria-label="Close Dialog" class="sr-only">Fermer la fenêtre</label>
+        <input type="image" src="assets/icons/close-lightbox.svg" aria-labelledby="close_lightbox-label" id="close_lightbox">
+        <div class="slider__wrapper">
+          <div class="slider__control">
+            <label for="left-arrow" id="left-arrow_control" aria-label="Previous image" class="sr-only">Précédente</label>
+            <input type="image" src="assets/icons/left-arrow.svg" aria-labelledby="left-arrow_control" id="left-arrow">
+          </div>
+          <div class="slider__medias">
+            <ul class="slider__list"></ul>
+          </div>
+          <div class="slider__control">
+            <label for="right-arrow" id="right-arrow_control" aria-label="Next image" class="sr-only">Suivante</label>
+            <input type="image" src="assets/icons/right-arrow.svg" aria-labelledby="right-arrow_control" id="right-arrow">
+          </div>
+        </div>
+      </dialog>
+    </div>
     <!-- Api -->
     <script src="/scripts/api/api.js"></script>
     <!-- Factories -->

@@ -14,6 +14,19 @@ body {
   padding: 45px 100px;
 }
 
+.sr-only {
+  border: 0;
+  -webkit-clip-path: rect(0 0 0 0);
+          clip-path: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+}
+
 /* ####### RESET ####### */
 * {
   box-sizing: border-box;

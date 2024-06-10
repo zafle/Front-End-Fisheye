@@ -14,6 +14,19 @@ body {
   padding: 45px 100px;
 }
 
+.sr-only {
+  border: 0;
+  -webkit-clip-path: rect(0 0 0 0);
+          clip-path: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+}
+
 /* ####### RESET ####### */
 * {
   box-sizing: border-box;
@@ -70,7 +83,7 @@ button.btn-hover:hover {
   background-color: rgba(196, 196, 196, 0.4);
   overflow: auto;
 }
-.contact_modal__modal {
+.contact_modal__dialog {
   position: relative;
   border-radius: 5px;
   background-color: #DB8876;
@@ -81,66 +94,66 @@ button.btn-hover:hover {
   border: none;
   box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.25);
 }
-.contact_modal__modal header {
+.contact_modal__dialog header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 20px;
 }
-.contact_modal__modal header #close_modal {
+.contact_modal__dialog header #close_contact-form {
   margin-top: 20px;
 }
-.contact_modal__modal header h1 {
+.contact_modal__dialog header h1 {
   font-size: 4rem;
 }
-.contact_modal__modal form {
+.contact_modal__dialog form {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
 }
-.contact_modal__modal form .formData {
+.contact_modal__dialog form .formData {
   position: relative;
   width: 100%;
 }
-.contact_modal__modal form label {
+.contact_modal__dialog form label {
   color: #312E2E;
   font-size: 2.25rem;
 }
-.contact_modal__modal form input, .contact_modal__modal form textarea {
+.contact_modal__dialog form input, .contact_modal__dialog form textarea {
   font-size: 1.5rem;
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 5px;
 }
-.contact_modal__modal form input {
+.contact_modal__dialog form input {
   height: 68px;
 }
-.contact_modal__modal form textarea {
+.contact_modal__dialog form textarea {
   height: 170px;
   min-width: 100%;
   max-width: 100%;
 }
-.contact_modal__modal form #message-label {
+.contact_modal__dialog form #message-label {
   margin-top: 10px;
 }
-.contact_modal__modal form .submit_button {
+.contact_modal__dialog form .submit_button {
   font-size: 1.125rem;
   margin-top: 25px;
 }
-.contact_modal__modal form .formData > input[aria-invalid=true],
-.contact_modal__modal form .formData > input[aria-invalid=true]:focus-visible,
-.contact_modal__modal form .formData > textarea[aria-invalid=true],
-.contact_modal__modal form .formData > textarea[aria-invalid=true]:focus-visible {
+.contact_modal__dialog form .formData > input[aria-invalid=true],
+.contact_modal__dialog form .formData > input[aria-invalid=true]:focus-visible,
+.contact_modal__dialog form .formData > textarea[aria-invalid=true],
+.contact_modal__dialog form .formData > textarea[aria-invalid=true]:focus-visible {
   border: 4px solid #FF2C00;
   outline: none;
 }
-.contact_modal__modal form .formData > input[aria-invalid=true],
-.contact_modal__modal form .formData > input[aria-invalid=true]:focus-visible {
+.contact_modal__dialog form .formData > input[aria-invalid=true],
+.contact_modal__dialog form .formData > input[aria-invalid=true]:focus-visible {
   height: 80px;
 }
-.contact_modal__modal form .error {
+.contact_modal__dialog form .error {
   color: #FF2C00;
   position: absolute;
   bottom: 0;
@@ -150,7 +163,7 @@ button.btn-hover:hover {
   text-align: right;
   width: 100%;
 }
-.contact_modal__modal form textarea[aria-invalid=true] + .error {
+.contact_modal__dialog form textarea[aria-invalid=true] + .error {
   margin-bottom: 10px;
 }
 

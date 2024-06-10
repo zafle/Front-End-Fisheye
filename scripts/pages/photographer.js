@@ -44,6 +44,10 @@ class Medias {
         // get array of likes and display total number of likes in aside section
         this._photographerLikes = this._medias.map(media => parseInt(media.likes))
         this._photographerGlobalInfo.displayLikesInfo(this._photographerLikes)
+
+        // run lightbox
+        const lightbox = new LightBox(this._medias)
+
     }
 
     // display photographer's header
@@ -64,7 +68,6 @@ class Medias {
         const photographerName = this._photographer[0].name
         const contactForm = new ContactForm(this._photographerId, photographerName)
         contactForm.runContactForm()
-        // contactForm.displaySuccessMessage()
     }
 }
 
