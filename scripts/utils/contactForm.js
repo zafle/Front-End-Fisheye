@@ -25,7 +25,7 @@ class ContactForm {
         this.$inputId = document.getElementById('photographer-id')
         this.$submit = document.querySelector('.submit_button')
 
-        // Modal control / Modal Observers
+        // Modal control
         this.ModalControl = new ModalControl(this.$modal, this.$closeModal)
     }
 

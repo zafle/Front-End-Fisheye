@@ -71,18 +71,18 @@
     <div id="lightbox_modal" class="lightbox_modal" aria-hidden="true">
       <dialog class="lightbox_modal__dialog" aria-label="Image closeup view">
         <label for="close_lightbox" id="close_lightbox-label" aria-label="Close Dialog" class="sr-only">Fermer la fenêtre</label>
-        <input type="image" src="assets/icons/close-lightbox.svg" aria-labelledby="close_lightbox-label" id="close_lightbox">
-        <div class="slider__wrapper">
+        <input type="image" src="assets/icons/close-lightbox.svg" aria-labelledby="close_lightbox-label" id="close_lightbox" title="Fermer">
+        <div class="slider">
           <div class="slider__control">
-            <label for="left-arrow" id="left-arrow_control" aria-label="Previous image" class="sr-only">Précédente</label>
-            <input type="image" src="assets/icons/left-arrow.svg" aria-labelledby="left-arrow_control" id="left-arrow">
+            <label for="left-arrow" id="left-arrow_control" aria-label="Previous image" class="sr-only">Précédent</label>
+            <input type="image" src="assets/icons/left-arrow.svg" aria-labelledby="left-arrow_control" id="left-arrow" title="Précédent">
           </div>
           <div class="slider__medias">
             <ul class="slider__list"></ul>
           </div>
           <div class="slider__control">
             <label for="right-arrow" id="right-arrow_control" aria-label="Next image" class="sr-only">Suivante</label>
-            <input type="image" src="assets/icons/right-arrow.svg" aria-labelledby="right-arrow_control" id="right-arrow">
+            <input type="image" src="assets/icons/right-arrow.svg" aria-labelledby="right-arrow_control" id="right-arrow" title="Suivant">
           </div>
         </div>
       </dialog>
@@ -101,6 +101,7 @@
     <!-- Utils -->
     <script src="/scripts/utils/modalControl.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightBox.js"></script>
     <!-- Pages -->
     <script src="/scripts/pages/photographer.js"></script>
   </body>

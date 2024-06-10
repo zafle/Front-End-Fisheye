@@ -181,6 +181,81 @@ button.btn-hover:hover {
   height: 215px;
 }
 
+/* ####### LIGHTBOX MODAL ####### */
+.main-container.lightbox_modal-open {
+  height: 100vh;
+  overflow: hidden;
+}
+
+#lightbox_modal {
+  display: none;
+}
+
+.lightbox_modal {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  overflow: auto;
+}
+.lightbox_modal__dialog {
+  position: relative;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 60px;
+}
+
+#close_lightbox {
+  position: absolute;
+  right: 0;
+  margin-right: 47px;
+  margin-top: 10px;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.slider__control {
+  max-width: 95px;
+  flex: 0 0 10%;
+  text-align: center;
+}
+.slider__medias {
+  flex: 1 1 80%;
+  width: calc(100% - 190px);
+}
+.slider__list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+.slider__item {
+  flex: 1 0 100%;
+}
+.slider__visual {
+  width: 100%;
+  height: calc(100vh - 120px);
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+.slider__title {
+  font-size: 1.5rem;
+  color: #901C1C;
+  height: 60px;
+  line-height: 60px;
+}
+
 /* ####### HEADER ####### */
 .main-header {
   display: flex;

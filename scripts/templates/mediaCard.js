@@ -67,7 +67,7 @@ class VideoCard extends MediaCard {
         const webmVideoLink = bareVideoLink[0] + ".webm"
 
         const visual = `
-        <video class="media__visual">
+        <video class="media__visual video-visual">
             <source src="${this._media.mediaLink}">
             <source src="${ogvVideoLink}">
             <source src="${webmVideoLink}">
