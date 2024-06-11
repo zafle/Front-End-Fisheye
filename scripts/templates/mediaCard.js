@@ -5,6 +5,7 @@ class MediaCard {
      */
     constructor(media) {
         this._media = media
+        this.$likes = document.querySelector('.global-info__likes_count')
     }
 
     // create HTML content of the media card
@@ -31,6 +32,14 @@ class MediaCard {
             </div>
         `
         return wrapper
+    }
+
+    // count likes
+    countLikes() {
+        const Likes = parseInt(this.$likes.innerHTML)
+        const mediaLikes = parseInt(this._media.likes)
+        const totalLikes = Likes + mediaLikes
+        this.$likes.innerHTML = totalLikes
     }
 
     // create media slide
