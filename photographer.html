@@ -24,14 +24,14 @@
         <section class="medias-filters">
           <h2 id="medias-filters__label" aria-label="Order by">Trier par</h2>
           <div class="medias-filters__list">
-            <button class="btn-style" role="button" aria-haspopup="listbox" aria-expanded aria-selected aria-labelledby="#medias-filters_label">
+            <button class="filter-button btn-style" role="button" aria-haspopup="listbox" aria-expanded aria-selected aria-labelledby="#medias-filters_label" data-filter="popular">
               Popularité
               <i class="fa-solid fa-chevron-down"></i>
             </button>
-            <button class="btn-style" role="listbox" aria-activedescendant aria-labelledby="medias-filters_label" aria-hidden="true">
+            <button class="filter-button btn-style" role="listbox" aria-activedescendant aria-labelledby="medias-filters_label" aria-hidden="true" data-filter="date">
               Date
             </button>
-            <button class="btn-style" role="listbox" aria-activedescendant aria-labelledby="medias-filters_label" aria-hidden="true">
+            <button class="filter-button btn-style" role="listbox" aria-activedescendant aria-labelledby="medias-filters_label" aria-hidden="true" data-filter="title">
               Titre
             </button>
           </div>
@@ -106,10 +106,13 @@
     <!-- Templates -->
     <script src="scripts/templates/mediaCard.js"></script>
     <script src="scripts/templates/photographerCard.js"></script>
+    <script src="scripts/templates/sorterForm.js"></script>
     <!-- Utils -->
     <script src="/scripts/utils/modalControl.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/lightBox.js"></script>
+    <!-- Lib -->
+    <script src="scripts/lib/sorter.js"></script>
     <!-- Pages -->
     <script src="/scripts/pages/photographer.js"></script>
   </body>

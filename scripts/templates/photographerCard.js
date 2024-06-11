@@ -40,8 +40,6 @@ class PhotographerInfos extends PhotographerCard {
         super(photographer)
         this.$header = document.querySelector('.photograph-header')
         this.$price = document.querySelector('.global-info__price_tag')
-        // this.$likes = document.querySelector('.global-info__likes_count')
-        // this.$addLike = document.querySelectorAll('.media__likes__add')
     }
 
     // create HTML content for photographer's header
@@ -77,42 +75,8 @@ class PhotographerInfos extends PhotographerCard {
         this.$price.innerHTML = this._photographer.price
     }
 
-    // increaseLike(mediaId) {
-    //     const mediaLikesString = `.media__likes__add[data-id="${mediaId}"]`
-    //     const $mediaLikes = document.querySelector(mediaLikesString)
-
-    //     // if new like
-    //     if(!$mediaLikes.classList.contains("media-liked")) {
-    //         // increase media like
-    //         const mediaCount = parseInt($mediaLikes.innerHTML)
-    //         mediaCount++
-    //         $mediaLikes.innerHTML = mediaCount
-    //         $mediaLikes.classList.add("media-liked")
-
-    //         // increase photographer total likes
-    //         const totalLikes = parseInt(this.$likes.innerHTML)
-    //         totalLikes++
-    //         this.$likes.innerHTML = totalLikes
-    //     }
-
-    // }
-
-    // addLike() {
-    //     console.log(this.$addLike)
-    //     this.$addLike.forEach(add => {
-    //         console.log("ok")
-    //         console.log(add)
-    //         add.addEventListener("click", (e) => {
-    //             e.preventDefault()
-    //             const mediaId = e.target.dataset.id
-    //             this.increaseLike(mediaId)
-    //         })
-    //     })
-    // }
-
     displayPhotographerInfo() {
         this.createHeader()
         this.displayPrice()
-        // this.addLike()
     }
 }

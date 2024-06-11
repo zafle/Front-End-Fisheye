@@ -27,7 +27,9 @@ class MediaDatas {
         return this._likes
     }
     get date() {
-        return this._date
+        const date = new Date(this._date)
+        const ISOdate = date.toISOString()
+        return ISOdate
     }
     get price() {
         return `${this._price}€ / jour`
@@ -37,5 +39,12 @@ class MediaDatas {
     }
     get mediaType() {
         return this._mediaType
+    }
+
+    /** Update the amount of likes
+     * @param {Number} newLikes
+     */
+    set likes(newLikes) {
+        this._likes = newLikes
     }
 }

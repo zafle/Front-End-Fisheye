@@ -14,7 +14,7 @@ class Medias {
         this._photographer = []
 
         //  DOM elements
-        this.$mediasSection = document.querySelector(".media__section");
+        this.$mediasSection = document.querySelector(".media__section")
     }
 
     // fetch medias Infos from API
@@ -42,6 +42,10 @@ class Medias {
         // run lightbox
         const lightbox = new LightBox(this._medias)
         lightbox.runLightbox()
+
+        // run Sorter Medias Filter
+        const sorterMedias = new SorterForm(this._medias)
+        sorterMedias.filtersAdd()
     }
 
     // display photographer's header
