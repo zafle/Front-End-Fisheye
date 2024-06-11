@@ -370,6 +370,7 @@ button.btn-hover:hover {
 }
 .media__section .media__likes__icon {
   display: inline-block;
+  transform: translateY(2px);
 }
 
 .global-info {

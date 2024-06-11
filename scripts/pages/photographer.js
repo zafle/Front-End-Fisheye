@@ -36,7 +36,7 @@ class Medias {
         this._medias.forEach(media => {
             const Template = new MediaFactory(media, media.mediaType)
             this.$mediasSection.append(Template.createMediaCard())
-            Template.countLikes()
+            Template.runLikesCounter()
         })
 
         // run lightbox
@@ -51,10 +51,9 @@ class Medias {
         await this.fetchPhotographer()
 
         const Template = new PhotographerInfos(this._photographer[0])
-        Template.createHeader()
-        Template.displayPrice()
+        Template.displayPhotographerInfo()
 
-        // add eventListener on contact button
+        // display contact form
         const photographerName = this._photographer[0].name
         const contactForm = new ContactForm(this._photographerId, photographerName)
         contactForm.runContactForm()

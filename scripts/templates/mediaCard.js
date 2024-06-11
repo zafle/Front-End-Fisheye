@@ -24,22 +24,24 @@ class MediaCard {
             <div class="media__infos">
                 <h3 class="media__title">${this._media.title}</h3>
                 <div class="media__likes">
-                    <span class="media__likes__count">
+                    <span class="media__likes__count"
+                        data-id="${this._media.id}">
                         ${this._media.likes}
                     </span>
-                    <img class="media__likes__icon" alt="likes" src="/assets/icons/like.svg" />
+                    <a href=""
+                        class="media__likes__add"
+                        aria-label="Add a like to ${this._media.title}"
+                        data-id="${this._media.id}"
+                        title="Ajouter un like">
+                            <img class="media__likes__icon"
+                                alt="likes"
+                                data-id="${this._media.id}"
+                                src="/assets/icons/like.svg" />
+                    </a>
                 </div>
             </div>
         `
         return wrapper
-    }
-
-    // count likes
-    countLikes() {
-        const Likes = parseInt(this.$likes.innerHTML)
-        const mediaLikes = parseInt(this._media.likes)
-        const totalLikes = Likes + mediaLikes
-        this.$likes.innerHTML = totalLikes
     }
 
     // create media slide
@@ -59,6 +61,46 @@ class MediaCard {
             <h3 class="slider__title">${this._media.title}</h3>
         `
         return liItem
+    }
+
+    // count likes
+    countLikes() {
+        let Likes = parseInt(this.$likes.innerHTML)
+        const mediaLikes = parseInt(this._media.likes)
+        Likes = Likes + mediaLikes
+        this.$likes.innerHTML = Likes
+    }
+
+    increaseLike($addLike, $mediaId) {
+
+        // if new like
+        if(!$addLike.classList.contains("media-liked")) {
+            // increase media like
+            const $counter = document.querySelector('.media__likes__count[data-id="' + $mediaId + '"]')
+            let mediaCount = parseInt($counter.innerHTML)
+            mediaCount++
+            $counter.innerHTML = mediaCount
+            $addLike.classList.add("media-liked")
+
+            // increase photographer total likes
+            let totalLikes = parseInt(this.$likes.innerHTML)
+            totalLikes++
+            this.$likes.innerHTML = totalLikes
+        }
+    }
+
+    addLikeEventListener() {
+        const $addLike = document.querySelector('.media__likes__add[data-id="' + this._media.id + '"]')
+        $addLike.addEventListener("click", (e) => {
+            e.preventDefault()
+            const $mediaId = e.target.dataset.id
+            this.increaseLike($addLike, $mediaId)
+        })
+    }
+
+    runLikesCounter() {
+        this.countLikes()
+        this.addLikeEventListener()
     }
 }
 
