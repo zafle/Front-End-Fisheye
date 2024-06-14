@@ -1,5 +1,5 @@
 class MediaCard {
-    /** Template Pattern for media card (image or video)
+    /** Template Pattern for medias (image or video)
      *
      * @param {Object} media
      */
@@ -8,12 +8,18 @@ class MediaCard {
         this.$likes = document.querySelector('.global-info__likes_count')
     }
 
+    // ############# MEDIA CARD ############
+
     // create HTML content of the media card
+
     createMediaCard() {
+
+        // creata tag article
         const wrapper = document.createElement('article')
         wrapper.classList.add('media__card')
+
         wrapper.innerHTML = `
-            <a href=""
+            <a href="#/"
                 class="media__lightbox-link"
                 aria-label="${this._media.title}, closeup view"
                 data-id="${this._media.id}"
@@ -28,7 +34,7 @@ class MediaCard {
                         data-id="${this._media.id}">
                         ${this._media.likes}
                     </span>
-                    <a href=""
+                    <a href="#/"
                         class="media__likes__add"
                         aria-label="Add a like to ${this._media.title}"
                         data-id="${this._media.id}"
@@ -44,36 +50,34 @@ class MediaCard {
         return wrapper
     }
 
-    // create media slide
-    createMediaSlide(mediaId) {
-        const liItem = document.createElement('li')
-        liItem.classList.add('slider__item')
 
-        if (parseInt(mediaId) === this._media.id) {
-            liItem.classList.add('current-view')
-            liItem.setAttribute('aria-hidden', 'false')
-        } else {
-            liItem.setAttribute('aria-hidden', 'true')
-        }
 
-        liItem.innerHTML = `
-            ${this.visual()}
-            <h3 class="slider__title">${this._media.title}</h3>
-        `
-        return liItem
-    }
-
-    // count likes
+    // count and increase total number of likes at each new Media Card creation
+    //
+    // this function has to be called only on page loading
     countLikes() {
+        //  get the precedent number of likes (0 if this card is the first ceated)
         let Likes = parseInt(this.$likes.innerHTML)
+
+        // get number of likes of this media
         const mediaLikes = parseInt(this._media.likes)
+
+        // Sum up likes
         Likes = Likes + mediaLikes
+
+        // Display total number of likes
         this.$likes.innerHTML = Likes
     }
 
     increaseLike($addLike, $mediaId) {
+        /** function called when a like icon is clicked
+         * increase likes for the media clicked
+         *
+         * @param {HTML Element} $addLike // link (a tag) used to add like
+         * @param {String} $mediaId // id of the clicked media
+         */
 
-        // if new like
+        // if new like (link does not contain media-liked class)
         if(!$addLike.classList.contains("media-liked")) {
             // increase media like
             const $counter = document.querySelector('.media__likes__count[data-id="' + $mediaId + '"]')
@@ -90,22 +94,57 @@ class MediaCard {
     }
 
     addLikeEventListener() {
+        // add event listener on click on the like icon of ech media
         const $addLike = document.querySelector('.media__likes__add[data-id="' + this._media.id + '"]')
         $addLike.addEventListener("click", (e) => {
             e.preventDefault()
             const $mediaId = e.target.dataset.id
+            // call the function to increase likes
+            // with parameters :
+            // - HTLM link element
+            // - media id value contained in the data-id attribute of the icon image clicked
             this.increaseLike($addLike, $mediaId)
         })
     }
 
     runLikesCounter() {
+        // general function to call on page loading
         this.countLikes()
         this.addLikeEventListener()
+    }
+
+    // ############# LIGHTBOX ############
+
+    createMediaSlide(mediaId) {
+        /** create media li HTML element for each slide of the lightbox
+         *
+         * @param {String} mediaId // clicked media id that launches the caroussel lightbox
+         */
+
+        // create li element
+        const liItem = document.createElement('li')
+        liItem.classList.add('slider__item')
+
+        // if the slide created is the clicked media slide
+        if (parseInt(mediaId) === this._media.id) {
+            // add class to indicate this slide is to be displayed
+            liItem.classList.add('current-view')
+            liItem.setAttribute('aria-hidden', 'false')
+        } else {
+            liItem.setAttribute('aria-hidden', 'true')
+        }
+
+        // insert image or video visual and title into slide li tag
+        liItem.innerHTML = `
+            ${this.visual()}
+            <h3 class="slider__title">${this._media.title}</h3>
+        `
+        return liItem
     }
 }
 
 class ImageCard extends MediaCard {
-    /** Template Pattern for media card (image or video)
+    /** Template Pattern for IMAGE media card
      *
      * @param {Object} media
      */
@@ -127,7 +166,7 @@ class ImageCard extends MediaCard {
 }
 
 class VideoCard extends MediaCard {
-    /** Template Pattern for media card (image or video)
+    /** Template Pattern for VIDEO media card
      *
      * @param {Object} media
      */
@@ -135,7 +174,7 @@ class VideoCard extends MediaCard {
         super(media)
     }
 
-    // create HTML content for the video picture
+    // create HTML content for the video media
     visual() {
         //  create video links for ogv and webm files
         const videoLink = this._media.mediaLink

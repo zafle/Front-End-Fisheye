@@ -32,6 +32,9 @@
     margin-bottom: 55px;
     position: relative;
     width: 280px;
+    height: 73px;
+    padding-top: 20px;
+
     h2 {
         font-size: rem(18);
         font-weight: $bold;
@@ -40,33 +43,45 @@
         position: absolute;
         top: 0;
         right: 0;
-        margin-top: -20px;
         background-color: $deep-red;
         border-radius: 5px;
-        padding: 0 10px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
+        z-index: 1;
 
         button {
             font-size: rem(18);
             border-radius: 0;
             text-align: left;
-        }
-        button:nth-of-type(1) {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            height: 53px;
         }
 
-        button:nth-of-type(2) {
+        button:nth-of-type(even) {
             border-top: 1px solid white;
             border-bottom: 1px solid white;
-
         }
-        // button:not(first-child) {
-        //     display: none;
-        // }
 
+        button.is-hidden {
+            display: none;
+        }
+    }
+
+    &__menu-trigger {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        height: 53px;
+        width: 53px;
+        line-height: 53px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    &__menu-icon {
+        font-size: rem(18);
+        color: white;
     }
 
 }

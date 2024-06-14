@@ -45,7 +45,7 @@ class Medias {
 
         // run Sorter Medias Filter
         const sorterMedias = new SorterForm(this._medias)
-        sorterMedias.filtersAdd()
+        sorterMedias.runSorterForm()
     }
 
     // display photographer's header

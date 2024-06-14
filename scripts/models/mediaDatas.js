@@ -40,11 +40,4 @@ class MediaDatas {
     get mediaType() {
         return this._mediaType
     }
-
-    /** Update the amount of likes
-     * @param {Number} newLikes
-     */
-    set likes(newLikes) {
-        this._likes = newLikes
-    }
 }

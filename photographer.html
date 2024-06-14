@@ -23,17 +23,42 @@
         </header>
         <section class="medias-filters">
           <h2 id="medias-filters__label" aria-label="Order by">Trier par</h2>
-          <div class="medias-filters__list">
-            <button class="filter-button btn-style" role="button" aria-haspopup="listbox" aria-expanded aria-selected aria-labelledby="#medias-filters_label" data-filter="popular">
-              Popularité
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <button class="filter-button btn-style" role="listbox" aria-activedescendant aria-labelledby="medias-filters_label" aria-hidden="true" data-filter="date">
-              Date
-            </button>
-            <button class="filter-button btn-style" role="listbox" aria-activedescendant aria-labelledby="medias-filters_label" aria-hidden="true" data-filter="title">
-              Titre
-            </button>
+          <div class="medias-filters__wrapper">
+            <a href="#/"
+                role="button"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-labelledby="medias-filters__label"
+                class="medias-filters__menu-trigger">
+              <i class="fa-solid fa-chevron-down medias-filters__menu-icon"></i>
+            </a>
+            <div class="medias-filters__list"
+                  role="listbox"
+                  aria-activedescendant=""
+                  aria-selected="false"
+                  aria-labelledby="medias-filters__label">
+              <button class="filter-button btn-style is-visible"
+                      role="option"
+                      id="popular_button"
+                      aria-hidden="false"
+                      data-filter="popular">
+                Popularité
+              </button>
+              <button class="filter-button btn-style is-hidden"
+                      role="option"
+                      id="date_button"
+                      aria-hidden="true"
+                      data-filter="date">
+                Date
+              </button>
+              <button class="filter-button btn-style is-hidden"
+                      role="option"
+                      id="title_button"
+                      aria-hidden="true"
+                      data-filter="title">
+                Titre
+              </button>
+            </div>
           </div>
         </section>
         <section class="media__section"></section>

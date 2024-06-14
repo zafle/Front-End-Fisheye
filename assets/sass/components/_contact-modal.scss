@@ -11,6 +11,7 @@
     align-items: center;
     background-color: $transparent-grey;
     overflow: auto;
+    z-index: 500;
 
     &__dialog {
         position: relative;

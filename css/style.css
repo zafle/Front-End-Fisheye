@@ -11,7 +11,7 @@ body {
 .main-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 45px 100px;
+  padding: 45px 100px 100px;
 }
 
 .sr-only {
