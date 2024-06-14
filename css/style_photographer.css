@@ -209,15 +209,15 @@ button.btn-hover:hover {
   width: 100vw;
   height: 100vh;
   border: none;
-  max-width: 1240px;
+  max-width: 1440px;
+  padding: 60px 100px 100px;
   margin: 0 auto;
-  padding-top: 60px;
 }
 
 #close_lightbox {
   position: absolute;
   right: 0;
-  margin-right: 47px;
+  margin-right: 130px;
   margin-top: 10px;
 }
 
@@ -231,22 +231,12 @@ button.btn-hover:hover {
   flex: 0 0 10%;
   text-align: center;
 }
-.slider__medias {
-  flex: 1 1 80%;
-  width: calc(100% - 190px);
-}
-.slider__list {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  width: 100%;
-}
-.slider__item {
-  flex: 1 0 100%;
+.slider__item:not(.current-view) {
+  display: none;
 }
 .slider .media__visual {
-  width: 100%;
-  height: calc(100vh - 120px);
+  width: 1050px;
+  height: 900px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
