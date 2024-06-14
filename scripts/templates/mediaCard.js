@@ -137,7 +137,7 @@ class MediaCard {
         // insert image or video visual and title into slide li tag
         liItem.innerHTML = `
             ${this.visual()}
-            <h3 class="slider__title">${this._media.title}</h3>
+            <p class="slider__title">${this._media.title}</p>
         `
         return liItem
     }

@@ -121,7 +121,8 @@ class SorterForm {
     openFilterMenu() {
         // function to open filter menu
 
-        // add class name that indicates that menu is open and change aria-expanded attribute to trigger button
+        // add class name that indicates that menu is open
+        // add aria-expanded attribute to trigger button
         this.$menuTrigger.classList.add("is-opened")
         this.$menuTrigger.setAttribute("aria-expanded", "true")
 
@@ -149,10 +150,10 @@ class SorterForm {
         this.$menuTrigger.classList.remove("is-opened")
         this.$menuTrigger.setAttribute("aria-expanded", "false")
 
-        // change aria-selected attribute to listbox
-        // empty aria-activedescendant attribute to listbox
-        this.$buttonList.setAttribute("aria-selected", "false")
-        this.$buttonList.setAttribute("aria-activedescendant", "")
+        // remove aria-selected attribute to listbox
+        // remove aria-activedescendant attribute to listbox
+        this.$buttonList.removeAttribute("aria-selected")
+        this.$buttonList.removeAttribute("aria-activedescendant")
 
         // if button is not selected and button is not supposed to be visible
         // (=> when page load, first button is visible (is-visible class) but not selected)

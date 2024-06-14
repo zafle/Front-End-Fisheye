@@ -13,13 +13,13 @@
   </head>
   <body>
     <div class="main-container">
-      <header role="banner" class="main-header">
+      <header class="main-header">
         <a href="index.html" target="_self" title="Accueil FishEye">
           <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
         </a>
       </header>
-      <main id="main" role="main">
-        <header role="banner" class="photograph-header">
+      <main id="main">
+        <header class="photograph-header">
         </header>
         <section class="medias-filters">
           <h2 id="medias-filters__label" aria-label="Order by">Trier par</h2>
@@ -29,13 +29,13 @@
                 aria-haspopup="listbox"
                 aria-expanded="false"
                 aria-labelledby="medias-filters__label"
+                title="Ouvrir le menu de filtres"
                 class="medias-filters__menu-trigger">
-              <i class="fa-solid fa-chevron-down medias-filters__menu-icon"></i>
+              <i class="fa-solid fa-chevron-down medias-filters__menu-icon" aria-describedby="menu_icon"></i>
+              <span class="sr-only" id="menu_icon">Icone d'ouverture et de fermeture du menu</span>
             </a>
             <div class="medias-filters__list"
                   role="listbox"
-                  aria-activedescendant=""
-                  aria-selected="false"
                   aria-labelledby="medias-filters__label">
               <button class="filter-button btn-style is-visible"
                       role="option"
@@ -78,9 +78,9 @@
 				<header>
           <h1 id="contact_title">Contactez-moi</h1>
           <label for="close_contact-form" id="close_contact-form-label" aria-label="Close Contact Form" class="sr-only">Fermer le formulaire de contact</label>
-          <input type="image" src="assets/icons/close.svg" aria-labelledby="close_contact-form-label" id="close_contact-form">
+          <input type="image" src="assets/icons/close.svg" alt="close button" aria-labelledby="close_contact-form-label" id="close_contact-form">
         </header>
-				<form id="contact_form" method="get" action="">
+				<form id="contact_form" method="get">
           <input type="hidden" id="photographer-id" name="id">
           <div class="formData">
             <label for="firstname" id="firstname-label" aria-label="First name">Prénom</label>
@@ -105,18 +105,18 @@
     <div id="lightbox_modal" class="lightbox_modal" aria-hidden="true">
       <dialog class="lightbox_modal__dialog" aria-label="Image closeup view">
         <label for="close_lightbox" id="close_lightbox-label" aria-label="Close Dialog" class="sr-only">Fermer la fenêtre</label>
-        <input type="image" src="assets/icons/close-lightbox.svg" aria-labelledby="close_lightbox-label" id="close_lightbox" title="Fermer">
+        <input type="image" src="assets/icons/close-lightbox.svg" alt="close button" aria-labelledby="close_lightbox-label" id="close_lightbox" title="Fermer">
         <div class="slider">
           <div class="slider__control">
             <label for="left-arrow" id="left-arrow_control" aria-label="Previous image" class="sr-only">Précédent</label>
-            <input type="image" src="assets/icons/left-arrow.svg" aria-labelledby="left-arrow_control" id="left-arrow" title="Précédent">
+            <input type="image" src="assets/icons/left-arrow.svg" alt="left arrow" aria-labelledby="left-arrow_control" id="left-arrow" title="Précédent">
           </div>
           <div class="slider__medias">
             <ul class="slider__list" aria-label="Photograph's medias closeup views"></ul>
           </div>
           <div class="slider__control">
             <label for="right-arrow" id="right-arrow_control" aria-label="Next image" class="sr-only">Suivante</label>
-            <input type="image" src="assets/icons/right-arrow.svg" aria-labelledby="right-arrow_control" id="right-arrow" title="Suivant">
+            <input type="image" src="assets/icons/right-arrow.svg" alt="right arrow" aria-labelledby="right-arrow_control" id="right-arrow" title="Suivant">
           </div>
         </div>
       </dialog>

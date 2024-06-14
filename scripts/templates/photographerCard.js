@@ -16,7 +16,7 @@ class PhotographerCard {
                 href="photographer.html?id=${this._photographer.id}"
                 title="Voir la page de ${this._photographer.name}"
                 target="_self"
-                role="${this._photographer.name}">
+                aria-label="${this._photographer.name}">
                 <div class="photographer__img-mask">
                     <img src="${this._photographer.portrait}"/>
                 </div>
