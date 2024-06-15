@@ -1,16 +1,18 @@
 class PhotographerCard {
-    /** Template for photographer Card on homepage
+    /** Template to display photographer Card on homepage
+     * or to display photographer header and infos on photographer page
      *
      * @param {Object} photographer
      */
     constructor(photographer) {
         this._photographer = photographer
-        this.$article = document.createElement('article')
-        this.$article.classList.add('photographer__article')
     }
 
-    // create HTML content for photographerCard
+    // create HTML content for photographerCard on homepage
     createPhotographerCard() {
+        const $article = document.createElement('article')
+        $article.classList.add('photographer__article')
+
         const PhotographerCard = `
             <a class="photographer__link"
                 href="photographer.html?id=${this._photographer.id}"
@@ -26,25 +28,14 @@ class PhotographerCard {
             <p class="photographer__tagline">${this._photographer.tagline}</p>
             <p class="photographer__price">${this._photographer.price}</p>
         `
-        this.$article.innerHTML = PhotographerCard
-        return this.$article
-    }
-}
-
-class PhotographerInfos extends PhotographerCard {
-    /** Template for photographer's header on photographer page
-     *
-     * @param {Object} photographer
-     */
-    constructor(photographer) {
-        super(photographer)
-        this.$header = document.querySelector('.photograph-header')
-        this.$price = document.querySelector('.global-info__price_tag')
+        $article.innerHTML = PhotographerCard
+        return $article
     }
 
-    // create HTML content for photographer's header
     createHeader() {
-        this.$header.innerHTML = `
+        const $header = document.querySelector('.photograph-header')
+
+        $header.innerHTML = `
             <div class="photograph-header__infos photograph-header__item">
                 <h1 class="photograph-header__title">
                     ${this._photographer.name}
@@ -72,7 +63,8 @@ class PhotographerInfos extends PhotographerCard {
     }
 
     displayPrice() {
-        this.$price.innerHTML = this._photographer.price
+        const $price = document.querySelector('.global-info__price_tag')
+        $price.innerHTML = this._photographer.price
     }
 
     displayPhotographerInfo() {

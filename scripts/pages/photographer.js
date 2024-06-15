@@ -54,7 +54,7 @@ class Medias {
     async displayPhotographerInfos() {
         await this.fetchPhotographer()
 
-        const Template = new PhotographerInfos(this._photographer[0])
+        const Template = new PhotographerCard(this._photographer[0])
         Template.displayPhotographerInfo()
 
         // display contact form
