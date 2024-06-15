@@ -2,7 +2,6 @@
 body {
   font-size: 16px;
   font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
   font-style: normal;
   font-weight: 400;
   margin: 0;
@@ -16,8 +15,6 @@ body {
 
 .sr-only {
   border: 0;
-  -webkit-clip-path: rect(0 0 0 0);
-          clip-path: rect(0 0 0 0);
   height: 1px;
   width: 1px;
   margin: -1px;
