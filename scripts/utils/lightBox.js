@@ -119,6 +119,9 @@ class LightBox {
         // Add event listener to close modal when escape
         this.ModalControl.closeModalOnEscape()
 
+        // Add event listener to trap focus into modal
+        this.ModalControl.trapFocus()
+
         // open modal
         this.$mediasLinks.forEach( link => {
             link.addEventListener("click", (e) => {

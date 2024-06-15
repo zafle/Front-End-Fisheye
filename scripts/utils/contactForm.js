@@ -95,7 +95,6 @@ class ContactForm {
     displayErrorMessage(input, error) {
         const $spanError = document.createElement('span')
         const $parent = input.closest(".formData");
-        const label = $parent.getElementsByTagName('label')[0].id
 
         input.setAttribute('aria-invalid', true)
         input.setAttribute("aria-labelledby", input.id + "_error")
@@ -192,8 +191,11 @@ class ContactForm {
     // general function to call
     runContactForm() {
 
-        // Add event listener to close modal when escape
+        // Add event listener to close modal on escape
         this.ModalControl.closeModalOnEscape()
+
+        // Add event listener to trap focus into modal
+        this.ModalControl.trapFocus()
 
         // open modal
         this.$contactButton.addEventListener("click", () => {
