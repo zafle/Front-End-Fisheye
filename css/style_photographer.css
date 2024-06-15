@@ -27,6 +27,10 @@ body {
   white-space: nowrap;
 }
 
+*:focus-visible {
+  outline-offset: 4px;
+}
+
 /* ####### RESET ####### */
 * {
   box-sizing: border-box;
@@ -144,14 +148,11 @@ button.btn-hover:hover {
   margin-top: 25px;
 }
 .contact_modal__dialog form .formData > input[aria-invalid=true],
-.contact_modal__dialog form .formData > input[aria-invalid=true]:focus-visible,
-.contact_modal__dialog form .formData > textarea[aria-invalid=true],
-.contact_modal__dialog form .formData > textarea[aria-invalid=true]:focus-visible {
+.contact_modal__dialog form .formData > textarea[aria-invalid=true] {
   border: 4px solid #FF2C00;
-  outline: none;
+  box-shadow: 0 0 0 4px white;
 }
-.contact_modal__dialog form .formData > input[aria-invalid=true],
-.contact_modal__dialog form .formData > input[aria-invalid=true]:focus-visible {
+.contact_modal__dialog form .formData > input[aria-invalid=true] {
   height: 80px;
 }
 .contact_modal__dialog form .error {

@@ -84,16 +84,15 @@
             // error message
 
             .formData > input[aria-invalid="true"],
-            .formData > input[aria-invalid="true"]:focus-visible,
-            .formData > textarea[aria-invalid="true"],
-            .formData > textarea[aria-invalid="true"]:focus-visible {
+            .formData > textarea[aria-invalid="true"] {
                 border: 4px solid $red-error;
-                outline: none;
+                box-shadow: 0 0 0 4px white;
             }
-            .formData > input[aria-invalid="true"],
-            .formData > input[aria-invalid="true"]:focus-visible {
+
+            .formData > input[aria-invalid="true"] {
                 height: 80px;
             }
+
             .error {
                 color: $red-error;
                 position: absolute;
@@ -106,9 +105,7 @@
                 }
                 textarea[aria-invalid="true"] + .error {
                 margin-bottom: 10px;
-
             }
-
         }
     }
 }

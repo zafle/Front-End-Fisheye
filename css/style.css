@@ -27,6 +27,10 @@ body {
   white-space: nowrap;
 }
 
+*:focus-visible {
+  outline-offset: 4px;
+}
+
 /* ####### RESET ####### */
 * {
   box-sizing: border-box;

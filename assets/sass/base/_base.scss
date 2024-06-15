@@ -27,3 +27,7 @@ body {
     position: absolute;
     white-space: nowrap;
 }
+
+*:focus-visible {
+    outline-offset: 4px;
+}

@@ -98,8 +98,10 @@ class ContactForm {
         const label = $parent.getElementsByTagName('label')[0].id
 
         input.setAttribute('aria-invalid', true)
+        input.setAttribute("aria-labelledby", input.id + "_error")
+
+        $spanError.id = input.id + "_error"
         $spanError.classList.add('error')
-        $spanError.setAttribute('aria-labelledby', label)
         $spanError.innerHTML = error.message
 
         $parent.append($spanError);
@@ -116,6 +118,7 @@ class ContactForm {
         if ($parent.contains($spanError)) {
             $spanError.remove()
             input.removeAttribute('aria-invalid')
+            input.setAttribute("aria-labelledby", input.id + "-label")
         }
     }
 
