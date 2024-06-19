@@ -36,7 +36,6 @@ class MediaCard {
                     </span>
                     <a href="#/"
                         class="media__likes__add"
-                        aria-label="Add a like to ${this._media.title}"
                         data-id="${this._media.id}"
                         title="Ajouter un like">
                             <img class="media__likes__icon"
