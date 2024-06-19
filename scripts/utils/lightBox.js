@@ -1,3 +1,6 @@
+/* global ModalControl */
+/* global MediaFactory */
+
 class LightBox {
     constructor(medias) {
 

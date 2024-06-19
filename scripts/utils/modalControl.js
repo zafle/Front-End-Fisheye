@@ -25,7 +25,7 @@ class ModalControl {
         this.$mainContainer.setAttribute('aria-hidden', false)
         this.$mainContainer.setAttribute('aria-disabled', false)
         this.$modal.setAttribute('aria-hidden', true)
-        this.$modal.style.display = "none";
+        this.$modal.style.display = "none"
     }
 
     closeModalOnEscape() {
@@ -43,24 +43,24 @@ class ModalControl {
         const lastFocusableEl = this.$modal.querySelector('.last-focusable_element')
 
         this.$modal.addEventListener('keydown', e => {
-          const isTabPressed = (e.key === 'Tab');
+          const isTabPressed = (e.key === 'Tab')
 
           if (!isTabPressed) {
-            return;
+            return
           }
 
           if ( e.shiftKey ) /* shift + tab */ {
             if (document.activeElement === firstFocusableEl) {
-              lastFocusableEl.focus();
-                e.preventDefault();
+              lastFocusableEl.focus()
+                e.preventDefault()
               }
             } else /* tab */ {
             if (document.activeElement === lastFocusableEl) {
-              firstFocusableEl.focus();
-                e.preventDefault();
+              firstFocusableEl.focus()
+                e.preventDefault()
               }
             }
-        });
+        })
 
     }
 }

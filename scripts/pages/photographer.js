@@ -74,4 +74,4 @@ async function init() {
     await medias.displayMediasCards()
 }
 
-init();
+init()

@@ -73,9 +73,9 @@ class ContactForm {
     }
 
     validateEmail(input) {
-        const emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
+        const emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+")
         if (!emailRegExp.test(input.value)) {
-            throw new Error("L'email doit être valide");
+            throw new Error("L'email doit être valide")
         }
     }
 
@@ -94,7 +94,7 @@ class ContactForm {
      */
     displayErrorMessage(input, error) {
         const $spanError = document.createElement('span')
-        const $parent = input.closest(".formData");
+        const $parent = input.closest(".formData")
 
         input.setAttribute('aria-invalid', true)
         input.setAttribute("aria-labelledby", input.id + "_error")
@@ -103,7 +103,7 @@ class ContactForm {
         $spanError.classList.add('error')
         $spanError.innerHTML = error.message
 
-        $parent.append($spanError);
+        $parent.append($spanError)
     }
 
     /**
@@ -111,7 +111,7 @@ class ContactForm {
      * @param {HTMLElement} input
      */
     resetErrorMessage(input) {
-        const $parent = input.closest(".formData");
+        const $parent = input.closest(".formData")
         const $spanError = $parent.querySelector('.error')
 
         if ($parent.contains($spanError)) {
@@ -132,14 +132,14 @@ class ContactForm {
      * @return {number}
      */
     validateInput(input, validate, errors) {
-        this.resetErrorMessage(input);
+        this.resetErrorMessage(input)
         try {
-            validate(input);
-            return errors;
+            validate(input)
+            return errors
         } catch (error) {
-            this.displayErrorMessage(input, error);
-            errors++;
-            return errors;
+            this.displayErrorMessage(input, error)
+            errors++
+            return errors
         }
     }
 
@@ -167,7 +167,7 @@ class ContactForm {
 
         // if no errors, send the form
         if (errors === 0) {
-            this.$contactForm.submit();
+            this.$contactForm.submit()
         }
     }
 

@@ -10,7 +10,7 @@
             this._photographers = []
 
             //  DOM elements
-            this.$photographersSection = document.querySelector(".photographer__section");
+            this.$photographersSection = document.querySelector(".photographer__section")
         }
 
         async fetchPhotographers() {
@@ -34,4 +34,4 @@
         await photographers.displayPhotographersCards()
     }
 
-    init();
+    init()
