@@ -40,11 +40,11 @@ class Medias {
         })
 
         // run lightbox
-        const lightbox = new LightBox(this._medias)
-        lightbox.runLightbox()
+        const Lightbox = new LightBox(this._medias)
+        Lightbox.runLightbox()
 
         // run Sorter Medias Filter
-        const sorterMedias = new SorterForm(this._medias)
+        const sorterMedias = new SorterForm(this._medias, Lightbox)
         sorterMedias.runSorterForm()
     }
 

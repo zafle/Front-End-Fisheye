@@ -4,12 +4,13 @@ class SorterForm {
      * build the new page with sorted medias
      *
      * @param {Array} medias
+     * @param {Object} Lightbox
      */
 
-    constructor(medias) {
+    constructor(medias, Lightbox) {
         this._medias = medias
+        this._Lightbox = Lightbox
         this._likesBackup = []
-        this._filters = ["popular", "date", "title"]
 
         this.$menuTrigger = document.querySelector(".medias-filters__menu-trigger")
         this.$menuIcon = document.querySelector(".medias-filters__menu-icon")
@@ -18,7 +19,6 @@ class SorterForm {
         this.$filterButtons = document.querySelectorAll('.filter-button')
         this.$mediasSection = document.querySelector(".media__section")
     }
-
 
     // ######### BACKUP AND UPDATE LIKES #########
 
@@ -84,36 +84,27 @@ class SorterForm {
          * @param {String} filter
          */
 
-        // if the section is not already filtered with the asked filter
-        if (!this.$mediasSection.classList.contains(filter)) {
+        // backup likes values
+        this.backupLikes()
 
-            // remove class filter name tha has been set befor
-            this._filters.forEach(fltr => {
-                this.$mediasSection.classList.remove(fltr)
-            })
-            // backup likes values
-            this.backupLikes()
+        // clear media section
+        this.clearMediasSection()
 
-            // clear media section
-            this.clearMediasSection()
+        // Apply filter
+        const sortedMedias = Sorter.sorter(this._medias, filter)
 
-            // Apply filter
-            const sortedMedias = Sorter.sorter(this._medias, filter)
+        // build new medias cards
+        sortedMedias.forEach(media => {
+            const Template = new MediaFactory(media, media.mediaType)
+            this.$mediasSection.append(Template.createMediaCard())
+            Template.addLikeEventListener()
+        })
 
-            // build new medias cards
-            sortedMedias.forEach(media => {
-                const Template = new MediaFactory(media, media.mediaType)
-                this.$mediasSection.append(Template.createMediaCard())
-                Template.addLikeEventListener()
-            })
+        // update likes values
+        this.updateLikes()
 
-            // update likes values
-            this.updateLikes()
-
-            // add a class named accordind to the type of filter applied
-            // to prevent re-loading the same filtered madias
-            this.$mediasSection.classList.add(filter)
-        }
+        // update Lightbox medias and add event listeners on new media cards
+        this._Lightbox.updateLightboxWithNewMedias(sortedMedias)
     }
 
     // ######### OPEN AND CLOSE FILTER MENU #########

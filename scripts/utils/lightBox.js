@@ -75,6 +75,17 @@ class LightBox {
         }
     }
 
+    openLightboxOnClick() {
+        // add event listener on click on each media card to open lightbox
+        this.$mediasLinks.forEach( link => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault()
+                const mediaId = e.target.dataset.id
+                this.displayModal(mediaId)
+            })
+        })
+    }
+
     changeSlide(direction) {
         /** Go to previous or next slide
          *
@@ -118,6 +129,21 @@ class LightBox {
         })
     }
 
+    updateLightboxWithNewMedias(newMedias) {
+        /** function to update medias and links to open lightbox modal
+         * -- used by SorterForm on sorted medias
+         *
+         * @param {Array} newMedias
+         */
+
+        // update medias array
+        this._medias = newMedias
+        // update DOM Elements medias cards links
+        this.$mediasLinks = document.querySelectorAll('.media__lightbox-link')
+        // add new eventlisteners on medias cards links
+        this.openLightboxOnClick()
+    }
+
     runLightbox() {
         // Add event listener to close modal when escape
         this.ModalControl.closeModalOnEscape()
@@ -125,14 +151,8 @@ class LightBox {
         // Add event listener to trap focus into modal
         this.ModalControl.trapFocus()
 
-        // open modal
-        this.$mediasLinks.forEach( link => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault()
-                const mediaId = e.target.dataset.id
-                this.displayModal(mediaId)
-            })
-        })
+        // add event listener on media cards to open modal
+        this.openLightboxOnClick()
 
         // close modal
         this.$closeModal.addEventListener("click", () => {
