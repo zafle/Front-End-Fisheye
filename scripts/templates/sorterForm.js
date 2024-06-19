@@ -1,3 +1,5 @@
+/* global MediaFactory, Sorter */
+
 class SorterForm {
     /** add event listeners on filters buttons
      * send request to filter
@@ -14,9 +16,9 @@ class SorterForm {
 
         this.$menuTrigger = document.querySelector(".medias-filters__menu-trigger")
         this.$menuIcon = document.querySelector(".medias-filters__menu-icon")
-        this.$buttonLabel = document.getElementById('medias-filters__label')
-        this.$buttonList = document.querySelector('.medias-filters__list')
-        this.$filterButtons = document.querySelectorAll('.filter-button')
+        this.$buttonLabel = document.getElementById("medias-filters__label")
+        this.$buttonList = document.querySelector(".medias-filters__list")
+        this.$filterButtons = document.querySelectorAll(".filter-button")
         this.$mediasSection = document.querySelector(".media__section")
     }
 
@@ -38,7 +40,7 @@ class SorterForm {
 
             // if media has been liked, set value on true
             let mediaLiked = ""
-            if ($addLike.classList.contains('media-liked')) {
+            if ($addLike.classList.contains("media-liked")) {
                 mediaLiked = true
             } else {
                 mediaLiked = false
@@ -59,13 +61,13 @@ class SorterForm {
 
         //  get new HTML elements by media id logged in the backup array
         for ( let i = 0; i < this._likesBackup.length; i++) {
-            const $likes = document.querySelector('.media__likes__count[data-id="' + this._likesBackup[i].id + '"]')
-            const $addLike = document.querySelector('.media__likes__add[data-id="' + this._likesBackup[i].id + '"]')
+            const $likes = document.querySelector(`.media__likes__count[data-id="${this._likesBackup[i].id}"]`)
+            const $addLike = document.querySelector(`.media__likes__add[data-id="${this._likesBackup[i].id}"]`)
 
             // set new values of likes and add class media-liked to prevent other like action
             $likes.innerHTML = this._likesBackup[i].likes
             if (this._likesBackup[i].liked === true) {
-                $addLike.classList.add('media-liked')
+                $addLike.classList.add("media-liked")
             }
         }
     }
@@ -121,7 +123,7 @@ class SorterForm {
         this.$buttonList.setAttribute("aria-selected", "true")
 
         // get hidden buttons elements
-        const $hiddenButtons = document.querySelectorAll('.filter-button.is-hidden')
+        const $hiddenButtons = document.querySelectorAll(".filter-button.is-hidden")
 
         // remove hidden class to hidden buttons (=remove css display none)
         // and change aria-hidden attribute to false
@@ -151,7 +153,7 @@ class SorterForm {
         // add hidden class to hidden buttons (= css display none)
         // and change aria-hidden attribute to true
         this.$filterButtons.forEach(button => {
-            if (!button.classList.contains('is-selected') && !button.classList.contains('is-visible')) {
+            if (!button.classList.contains("is-selected") && !button.classList.contains("is-visible")) {
                 button.classList.add("is-hidden")
                 button.setAttribute("aria-hidden", "true")
             }
@@ -183,24 +185,24 @@ class SorterForm {
             button.addEventListener("click", (e) => {
 
                 // if the filter has not already been applied
-                if (!e.target.classList.contains('is-selected')) {
+                if (!e.target.classList.contains("is-selected")) {
 
                     // get eventual other button tha has been clicked before
-                    const $selectedButton = document.querySelector('.is-selected')
+                    const $selectedButton = document.querySelector(".is-selected")
                     // get eventual first button that is visible but not selected
-                    const $visibleButton = document.querySelector('.is-visible')
+                    const $visibleButton = document.querySelector(".is-visible")
 
                     // removes class names
                     if ($selectedButton) {
-                        $selectedButton.classList.remove('is-selected')
+                        $selectedButton.classList.remove("is-selected")
                     }
 
                     if ($visibleButton) {
-                        $visibleButton.classList.remove('is-visible')
+                        $visibleButton.classList.remove("is-visible")
                     }
 
                     // add class name is-selected to clicked button
-                    e.target.classList.add('is-selected')
+                    e.target.classList.add("is-selected")
                     // move button at top of list
                     this.$buttonList.prepend(e.target)
 
@@ -253,7 +255,7 @@ class SorterForm {
 
     closeMenuOnEscape() {
         // Close menu when escape key is pressed
-        document.addEventListener('keydown', e => {
+        document.addEventListener("keydown", e => {
             const keyCode = e.code
             if (this.$menuTrigger.classList.contains("is-opened") && keyCode === "Escape") {
                 this.closeFilterMenu()

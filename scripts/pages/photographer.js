@@ -1,3 +1,5 @@
+/* global PhotographersApi, MediasApi, MediaDatas, PhotographerDatas, MediaFactory, LightBox, SorterForm, PhotographerCard, ContactForm */
+
 class Medias {
     /** Fetch medias datas relative to photographer and display them on the photographer page
      *
@@ -5,8 +7,8 @@ class Medias {
      */
     constructor(id) {
         // Apis
-        this._photographerApi = new PhotographersApi('/data/photographers.json')
-        this._mediasApi = new MediasApi('/data/photographers.json')
+        this._photographerApi = new PhotographersApi("/data/photographers.json")
+        this._mediasApi = new MediasApi("/data/photographers.json")
 
         // Medias
         this._photographerId = id
@@ -50,7 +52,6 @@ class Medias {
 
     // display photographer's header
     // display price on page
-    // display contact form
     async displayPhotographerInfos() {
         await this.fetchPhotographer()
 
@@ -58,8 +59,7 @@ class Medias {
         Template.displayPhotographerInfo()
 
         // display contact form
-        const photographerName = this._photographer[0].name
-        const contactForm = new ContactForm(this._photographerId, photographerName)
+        const contactForm = new ContactForm(this._photographerId, this._photographer[0].name)
         contactForm.runContactForm()
     }
 }

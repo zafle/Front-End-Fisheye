@@ -1,5 +1,3 @@
-// Model for Photographer Datas to display on home page
-
 class PhotographerDatas {
     /** Assign photographers datas to object properties
      *

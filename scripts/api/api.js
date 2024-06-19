@@ -10,7 +10,7 @@ class Api {
     async getDatas() {
         return fetch(this._url)
             .then(response => response.json())
-            .catch(err => console.log('an error occured', err))
+            .catch(err => console.log("an error occured", err))
     }
 }
 
@@ -46,15 +46,15 @@ class MediasApi extends Api {
      *
      * @param {string} url
      */
-        constructor(url) {
-            super(url)
-            this._medias = []
-        }
+    constructor(url) {
+        super(url)
+        this._medias = []
+    }
 
-        async getMediasData(id) {
-            const mediasDatas = await this.getDatas()
-            this._medias = mediasDatas.media.filter(media => media.photographerId === id)
-            return this._medias
-        }
+    async getMediasData(id) {
+        const mediasDatas = await this.getDatas()
+        this._medias = mediasDatas.media.filter(media => media.photographerId === id)
+        return this._medias
+    }
 
 }

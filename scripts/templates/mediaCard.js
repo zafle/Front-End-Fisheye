@@ -5,7 +5,7 @@ class MediaCard {
      */
     constructor(media) {
         this._media = media
-        this.$likes = document.querySelector('.global-info__likes_count')
+        this.$likes = document.querySelector(".global-info__likes_count")
     }
 
     // ############# MEDIA CARD ############
@@ -15,8 +15,8 @@ class MediaCard {
     createMediaCard() {
 
         // creata tag article
-        const wrapper = document.createElement('article')
-        wrapper.classList.add('media__card')
+        const wrapper = document.createElement("article")
+        wrapper.classList.add("media__card")
 
         wrapper.innerHTML = `
             <a href="#/"
@@ -80,7 +80,7 @@ class MediaCard {
         // if new like (link does not contain media-liked class)
         if(!$addLike.classList.contains("media-liked")) {
             // increase media like
-            const $counter = document.querySelector('.media__likes__count[data-id="' + $mediaId + '"]')
+            const $counter = document.querySelector(`.media__likes__count[data-id="${$mediaId}"]`)
             let mediaCount = parseInt($counter.innerHTML)
             mediaCount++
             $counter.innerHTML = mediaCount
@@ -94,8 +94,8 @@ class MediaCard {
     }
 
     addLikeEventListener() {
-        // add event listener on click on the like icon of ech media
-        const $addLike = document.querySelector('.media__likes__add[data-id="' + this._media.id + '"]')
+        // add event listener on click on the like icon of each media
+        const $addLike = document.querySelector(`.media__likes__add[data-id="${this._media.id}"]`)
         $addLike.addEventListener("click", (e) => {
             e.preventDefault()
             const $mediaId = e.target.dataset.id
@@ -122,16 +122,16 @@ class MediaCard {
          */
 
         // create li element
-        const liItem = document.createElement('li')
-        liItem.classList.add('slider__item')
+        const liItem = document.createElement("li")
+        liItem.classList.add("slider__item")
 
         // if the slide created is the clicked media slide
         if (parseInt(mediaId) === this._media.id) {
             // add class to indicate this slide is to be displayed
-            liItem.classList.add('current-view')
-            liItem.setAttribute('aria-hidden', 'false')
+            liItem.classList.add("current-view")
+            liItem.setAttribute("aria-hidden", "false")
         } else {
-            liItem.setAttribute('aria-hidden', 'true')
+            liItem.setAttribute("aria-hidden", "true")
         }
 
         // insert image or video visual and title into slide li tag

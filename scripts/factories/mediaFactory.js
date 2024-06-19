@@ -1,3 +1,5 @@
+/* global ImageCard, VideoCard */
+
 class MediaFactory {
     /** Assign media data either to ImageCard or VideoCard,
      * according to its type.
@@ -11,7 +13,7 @@ class MediaFactory {
         } else if (type === "video") {
             return new VideoCard(media)
         } else {
-            throw 'Unknown type format'
+            throw "Unknown type format"
         }
     }
 }

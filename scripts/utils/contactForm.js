@@ -1,3 +1,5 @@
+/* global ModalControl */
+
 class ContactForm {
     /** Display, check and send contact form
      *
@@ -10,20 +12,20 @@ class ContactForm {
 
         //  DOM Elements
         // this.$mainContainer = document.querySelector('.main-container')
-        this.$contactButton = document.getElementById('contact_button')
+        this.$contactButton = document.getElementById("contact_button")
         // modal
-        this.$modal = document.getElementById('contact_modal')
-        this.$dialog = document.querySelector('.contact_modal__dialog')
-        this.$closeModal = document.getElementById('close_contact-form')
-        this.$title = document.getElementById('contact_title')
+        this.$modal = document.getElementById("contact_modal")
+        this.$dialog = document.querySelector(".contact_modal__dialog")
+        this.$closeModal = document.getElementById("close_contact-form")
+        this.$title = document.getElementById("contact_title")
         // form
-        this.$contactForm = document.getElementById('contact_form')
-        this.$firstName = document.getElementById('firstname')
-        this.$lastName = document.getElementById('lastname')
-        this.$email = document.getElementById('email')
-        this.$message = document.getElementById('message')
-        this.$inputId = document.getElementById('photographer-id')
-        this.$submit = document.querySelector('.submit_button')
+        this.$contactForm = document.getElementById("contact_form")
+        this.$firstName = document.getElementById("firstname")
+        this.$lastName = document.getElementById("lastname")
+        this.$email = document.getElementById("email")
+        this.$message = document.getElementById("message")
+        this.$inputId = document.getElementById("photographer-id")
+        this.$submit = document.querySelector(".submit_button")
 
         // Modal control
         this.ModalControl = new ModalControl(this.$modal, this.$closeModal)
@@ -43,7 +45,7 @@ class ContactForm {
         this.ModalControl.closeModal()
 
         // if success message is displayed
-        const $successMessage = document.querySelector('.success-message')
+        const $successMessage = document.querySelector(".success-message")
         if ($successMessage) {
 
             // remove success message and display contact form
@@ -52,7 +54,7 @@ class ContactForm {
 
             // delete parameters from URL whithout reloading the page
             const newLocation = `photographer.html?id=${this._photographerId}`
-            window.history.replaceState(null, '', "/" + newLocation)
+            window.history.replaceState(null, "", "/" + newLocation)
         }
     }
 
@@ -93,14 +95,14 @@ class ContactForm {
      * @param {Error} error
      */
     displayErrorMessage(input, error) {
-        const $spanError = document.createElement('span')
+        const $spanError = document.createElement("span")
         const $parent = input.closest(".formData")
 
-        input.setAttribute('aria-invalid', true)
+        input.setAttribute("aria-invalid", true)
         input.setAttribute("aria-labelledby", input.id + "_error")
 
         $spanError.id = input.id + "_error"
-        $spanError.classList.add('error')
+        $spanError.classList.add("error")
         $spanError.innerHTML = error.message
 
         $parent.append($spanError)
@@ -112,11 +114,11 @@ class ContactForm {
      */
     resetErrorMessage(input) {
         const $parent = input.closest(".formData")
-        const $spanError = $parent.querySelector('.error')
+        const $spanError = $parent.querySelector(".error")
 
         if ($parent.contains($spanError)) {
             $spanError.remove()
-            input.removeAttribute('aria-invalid')
+            input.removeAttribute("aria-invalid")
             input.setAttribute("aria-labelledby", input.id + "-label")
         }
     }
@@ -181,8 +183,8 @@ class ContactForm {
         if (userFirstName) {
             this.displayModal()
             this.$contactForm.style.display = "none"
-            const $successMessage = document.createElement('p')
-            $successMessage.classList.add('success-message')
+            const $successMessage = document.createElement("p")
+            $successMessage.classList.add("success-message")
             $successMessage.innerText = `Votre message a été envoyé avec succès !`
             this.$dialog.append($successMessage)
         }
@@ -222,6 +224,4 @@ class ContactForm {
         // if form has been send display success message
         this.displaySuccessMessage()
     }
-
-
 }

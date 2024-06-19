@@ -1,22 +1,25 @@
-/* global ModalControl */
-/* global MediaFactory */
+/* global ModalControl, MediaFactory */
 
 class LightBox {
+    /** Create Lightbox to display medias in a modal
+     *
+     * @param {Array} medias
+     */
     constructor(medias) {
 
         this._medias = medias
 
         // DOM Elements
-        this.$mainContainer = document.querySelector('.main-container')
-        this.$mediasLinks = document.querySelectorAll('.media__lightbox-link')
-        this.$mediasVisuals = document.querySelectorAll('.media__visual')
+        this.$mainContainer = document.querySelector(".main-container")
+        this.$mediasLinks = document.querySelectorAll(".media__lightbox-link")
+        this.$mediasVisuals = document.querySelectorAll(".media__visual")
 
         // lightbox
-        this.$modal = document.getElementById('lightbox_modal')
-        this.$closeModal = document.getElementById('close_lightbox')
-        this.$slider = document.querySelector('.slider__list')
-        this.$previous = document.getElementById('left-arrow')
-        this.$next = document.getElementById('right-arrow')
+        this.$modal = document.getElementById("lightbox_modal")
+        this.$closeModal = document.getElementById("close_lightbox")
+        this.$slider = document.querySelector(".slider__list")
+        this.$previous = document.getElementById("left-arrow")
+        this.$next = document.getElementById("right-arrow")
 
         // Modal Control
         this.ModalControl = new ModalControl(this.$modal, this.$closeModal)
@@ -29,7 +32,7 @@ class LightBox {
          */
 
         this.ModalControl.displayModal()
-        this.$mainContainer.classList.add('lightbox_modal-open')
+        this.$mainContainer.classList.add("lightbox_modal-open")
         this.createSlider(mediaId)
         this.displayCurrentView()
     }
@@ -39,7 +42,7 @@ class LightBox {
          *
          */
         this.ModalControl.closeModal()
-        this.$mainContainer.classList.remove('lightbox_modal-open')
+        this.$mainContainer.classList.remove("lightbox_modal-open")
         this.$slider.innerHTML = ""
     }
 
@@ -54,9 +57,9 @@ class LightBox {
             this.$slider.append(Template.createMediaSlide(mediaId))
         })
 
-        const videos = this.$slider.querySelectorAll('.video-visual')
+        const videos = this.$slider.querySelectorAll(".video-visual")
         videos.forEach(video => {
-            video.setAttribute('controls', 'controls')
+            video.setAttribute("controls", "controls")
         })
     }
 
@@ -65,9 +68,9 @@ class LightBox {
          *  if the slide is not current view, it is moved to the end of the list
          *  if it is current view it breaks, then the first slide of the list is current view
          */
-        const sliderItems = document.querySelectorAll('.slider__item')
+        const sliderItems = document.querySelectorAll(".slider__item")
         for( let i = 0; i < sliderItems.length; i++) {
-            if (!sliderItems[i].classList.contains('current-view')) {
+            if (!sliderItems[i].classList.contains("current-view")) {
                 this.$slider.append(sliderItems[i])
             } else {
                 break
@@ -93,33 +96,33 @@ class LightBox {
          */
 
         // get all li slides
-        const sliderItems = Array.from(document.querySelectorAll('.slider__item'))
+        const sliderItems = Array.from(document.querySelectorAll(".slider__item"))
 
         switch (direction) {
-            case "previous":
-                // remove last li slide and prepend it to ul
-                this.$slider.prepend(sliderItems.pop())
-                break
+        case "previous":
+            // remove last li slide and prepend it to ul
+            this.$slider.prepend(sliderItems.pop())
+            break
 
-            case "next":
-                // remove first li slide and append it to ul
-                this.$slider.append(sliderItems[0])
-                break
+        case "next":
+            // remove first li slide and append it to ul
+            this.$slider.append(sliderItems[0])
+            break
         }
 
         // give current-view class and aria-hidden=false to new first slide
-        const currentView = document.querySelector('.current-view')
-        currentView.classList.remove('current-view')
-        currentView.setAttribute('aria-hidden', 'true')
+        const currentView = document.querySelector(".current-view")
+        currentView.classList.remove("current-view")
+        currentView.setAttribute("aria-hidden", "true")
 
-        const newSliderItems = Array.from(document.querySelectorAll('.slider__item'))
+        const newSliderItems = Array.from(document.querySelectorAll(".slider__item"))
         newSliderItems[0].classList.add("current-view")
-        newSliderItems[0].setAttribute('aria-hidden', 'false')
+        newSliderItems[0].setAttribute("aria-hidden", "false")
     }
 
     changeSlideWithArrow() {
 
-        document.addEventListener('keydown', e => {
+        document.addEventListener("keydown", e => {
             const keyCode = e.code
             if (keyCode === "ArrowLeft") {
                 this.changeSlide("previous")
@@ -139,7 +142,7 @@ class LightBox {
         // update medias array
         this._medias = newMedias
         // update DOM Elements medias cards links
-        this.$mediasLinks = document.querySelectorAll('.media__lightbox-link')
+        this.$mediasLinks = document.querySelectorAll(".media__lightbox-link")
         // add new eventlisteners on medias cards links
         this.openLightboxOnClick()
     }
