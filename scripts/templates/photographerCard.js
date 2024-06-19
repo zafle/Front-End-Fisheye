@@ -16,11 +16,11 @@ class PhotographerCard {
         const PhotographerCard = `
             <a class="photographer__link"
                 href="photographer.html?id=${this._photographer.id}"
-                title="Voir la page de ${this._photographer.name}"
                 target="_self"
                 aria-label="${this._photographer.name}">
                 <div class="photographer__img-mask">
-                    <img src="${this._photographer.portrait}"/>
+                    <img src="${this._photographer.portrait}"
+                        alt="${this._photographer.name}"/>
                 </div>
                 <h2 class="photographer__name">${this._photographer.name}</h2>
             </a>
