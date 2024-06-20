@@ -26,7 +26,8 @@ class PhotographerCard {
             </a>
             <p class="photographer__location">${this._photographer.city}, ${this._photographer.country}</p>
             <p class="photographer__tagline">${this._photographer.tagline}</p>
-            <p class="photographer__price">${this._photographer.price}</p>
+            <p class="photographer__price" aria-hidden="true">${this._photographer.price}</p>
+            <span class="sr-only">${this._photographer._price} euros par jour</span>
         `
         $article.innerHTML = PhotographerCard
         return $article

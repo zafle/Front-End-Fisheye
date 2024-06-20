@@ -100,6 +100,7 @@ class ContactForm {
 
         input.setAttribute("aria-invalid", true)
         input.setAttribute("aria-labelledby", input.id + "_error")
+        input.classList.add("input-error")
 
         $spanError.id = input.id + "_error"
         $spanError.classList.add("error")
@@ -120,6 +121,7 @@ class ContactForm {
             $spanError.remove()
             input.removeAttribute("aria-invalid")
             input.setAttribute("aria-labelledby", input.id + "-label")
+            input.classList.remove("input-error")
         }
     }
 
@@ -165,11 +167,16 @@ class ContactForm {
         errors = this.validateInput(this.$email, this.validateEmail, errors)
         errors = this.validateInput(this.$message, this.validateMessage, errors)
 
-        this.$closeModal.focus()
+        // this.$closeModal.focus()
 
         // if no errors, send the form
         if (errors === 0) {
             this.$contactForm.submit()
+
+        // if error force focus on first error input
+        } else {
+            const errors = document.querySelectorAll(".input-error")
+            errors[0].focus()
         }
     }
 
