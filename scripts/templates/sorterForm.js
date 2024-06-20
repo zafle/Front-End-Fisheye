@@ -159,9 +159,6 @@ class SorterForm {
             }
         })
 
-        // put focus back on trigger
-        this.$menuTrigger.focus()
-
         // rotate trigger icon upside down
         this.$menuIcon.style.transform = "rotate(0deg)"
     }
