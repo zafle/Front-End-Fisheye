@@ -1,5 +1,6 @@
 class MediaDatas {
-    /** Assign media datas to object properties
+    /** Constructor Pattern
+     * Assign media datas to object properties
      *
      * @param {Array} media
      */

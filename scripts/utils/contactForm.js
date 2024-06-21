@@ -167,8 +167,6 @@ class ContactForm {
         errors = this.validateInput(this.$email, this.validateEmail, errors)
         errors = this.validateInput(this.$message, this.validateMessage, errors)
 
-        // this.$closeModal.focus()
-
         // if no errors, send the form
         if (errors === 0) {
             this.$contactForm.submit()

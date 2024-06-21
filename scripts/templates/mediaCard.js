@@ -55,7 +55,7 @@ class MediaCard {
     //
     // this function has to be called only on page loading
     countLikes() {
-        //  get the precedent number of likes (0 if this card is the first ceated)
+        //  get the precedent number of likes (0 if this card is the first created)
         let Likes = parseInt(this.$likes.innerHTML)
 
         // get number of likes of this media

@@ -1,5 +1,6 @@
 class PhotographerDatas {
-    /** Assign photographers datas to object properties
+    /** Constructor Pattern
+     * Assign photographers datas to object properties
      *
      * @param {Array} photographer
      */

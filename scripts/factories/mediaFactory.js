@@ -1,7 +1,8 @@
 /* global ImageCard, VideoCard */
 
 class MediaFactory {
-    /** Assign media data either to ImageCard or VideoCard,
+    /** Factory Pattern
+     * Assign media data either to ImageCard or VideoCard,
      * according to its type.
      *
      * @param {Object} media

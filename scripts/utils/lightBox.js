@@ -30,7 +30,6 @@ class LightBox {
          *
          * @param {String} mediaId // data-id of the clicked element
          */
-
         this.ModalControl.displayModal()
         this.$mainContainer.classList.add("lightbox_modal-open")
         this.createSlider(mediaId)

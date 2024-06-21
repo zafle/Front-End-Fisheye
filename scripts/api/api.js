@@ -26,6 +26,7 @@ class PhotographersApi extends Api {
     }
 
     async getAllPhotographersData() {
+        // return all photographers datas
         const photographersDatas = await this.getDatas()
         this._photographers = photographersDatas.photographers
 
@@ -33,12 +34,13 @@ class PhotographersApi extends Api {
     }
 
     async getSinglePhotographerData(id) {
+        /** return photographer's data from which the id is given
+         *
+         * @param {Number} id
+         */
         this._photographers = await this.getAllPhotographersData()
-        this._photographer = this._photographers.filter(
-            photographer => photographer.id === id
-        )
+        this._photographer = this._photographers.filter(photographer => photographer.id === id)
         return this._photographer
-
     }
 }
 class MediasApi extends Api {
@@ -52,6 +54,10 @@ class MediasApi extends Api {
     }
 
     async getMediasData(id) {
+        /** return medias from photographer's from which the id is given
+         *
+         * @param {Number} id
+         */
         const mediasDatas = await this.getDatas()
         this._medias = mediasDatas.media.filter(media => media.photographerId === id)
         return this._medias
