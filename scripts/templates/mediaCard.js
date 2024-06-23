@@ -14,7 +14,7 @@ class MediaCard {
 
     createMediaCard() {
 
-        // creata tag article
+        // create tag article
         const wrapper = document.createElement("article")
         wrapper.classList.add("media__card")
 
@@ -183,7 +183,8 @@ class VideoCard extends MediaCard {
 
         const visual = `
             <video class="media__visual video-visual"
-                    data-id="${this._media.id}">
+                    data-id="${this._media.id}"
+                    aria-label="${this._media.title}">
                 <source src="${this._media.mediaLink}">
                 <source src="${ogvVideoLink}">
                 <source src="${webmVideoLink}">

@@ -1,5 +1,3 @@
-/* exported ModalControl */
-
 class ModalControl {
     /** functions to control modals
      *

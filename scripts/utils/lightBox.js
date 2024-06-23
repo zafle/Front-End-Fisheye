@@ -20,6 +20,7 @@ class LightBox {
         this.$slider = document.querySelector(".slider__list")
         this.$previous = document.getElementById("left-arrow")
         this.$next = document.getElementById("right-arrow")
+        this.$live = document.getElementById("live-region")
 
         // Modal Control
         this.ModalControl = new ModalControl(this.$modal, this.$closeModal)
@@ -34,6 +35,8 @@ class LightBox {
         this.$mainContainer.classList.add("lightbox_modal-open")
         this.createSlider(mediaId)
         this.displayCurrentView()
+        this.focusOnVideo()
+        this.updateLiveRegion()
     }
 
     closeModal() {
@@ -77,6 +80,22 @@ class LightBox {
         }
     }
 
+    focusOnVideo() {
+        // put focus on video media
+        const $currentView = document.querySelector(".current-view")
+        const $media = $currentView.querySelector(".media__visual")
+        if ($media.classList.contains("video-visual")) {
+            $media.focus()
+        }
+    }
+
+    updateLiveRegion() {
+        // update aria-live for screenreader to read media title on change
+        const $currentView = document.querySelector(".current-view")
+        const $title = $currentView.querySelector(".slider__title")
+        this.$live.innerText = $title.innerText
+    }
+
     openLightboxOnClick() {
         // add event listener on click on each media card to open lightbox
         this.$mediasLinks.forEach( link => {
@@ -117,6 +136,12 @@ class LightBox {
         const newSliderItems = Array.from(document.querySelectorAll(".slider__item"))
         newSliderItems[0].classList.add("current-view")
         newSliderItems[0].setAttribute("aria-hidden", "false")
+
+        // update live region
+        this.updateLiveRegion()
+
+        // put focus on video
+        this.focusOnVideo()
     }
 
     changeSlideWithArrow() {
