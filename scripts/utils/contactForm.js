@@ -58,6 +58,16 @@ class ContactForm {
         }
     }
 
+    closeModalOnEscape() {
+        // Close modal when escape key is pressed
+        this.$modal.addEventListener("keydown", e => {
+            const isEscapePressed = (e.key === "Escape")
+            if (this.$modal.getAttribute("aria-hidden") === "false" && isEscapePressed) {
+                this.closeModal()
+            }
+        })
+    }
+
     /**
      * functions to validate each form input
      * @param {HTMLElement} input
@@ -199,7 +209,7 @@ class ContactForm {
     runContactForm() {
 
         // Add event listener to close modal on escape
-        this.ModalControl.closeModalOnEscape()
+        this.closeModalOnEscape()
 
         // Add event listener to trap focus into modal
         this.ModalControl.trapFocus()

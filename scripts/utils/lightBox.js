@@ -43,9 +43,19 @@ class LightBox {
         /** close modal
          *
          */
-        this.ModalControl.closeModal()
-        this.$mainContainer.classList.remove("lightbox_modal-open")
         this.$slider.innerHTML = ""
+        this.$mainContainer.classList.remove("lightbox_modal-open")
+        this.ModalControl.closeModal()
+    }
+
+    closeModalOnEscape() {
+        // Close modal when escape key is pressed
+        this.$modal.addEventListener("keydown", e => {
+            const isEscapePressed = (e.key === "Escape")
+            if (this.$modal.getAttribute("aria-hidden") === "false" && isEscapePressed) {
+                this.closeModal()
+            }
+        })
     }
 
     createSlider(mediaId) {
@@ -173,7 +183,7 @@ class LightBox {
 
     runLightbox() {
         // Add event listener to close modal when escape
-        this.ModalControl.closeModalOnEscape()
+        this.closeModalOnEscape()
 
         // Add event listener to trap focus into modal
         this.ModalControl.trapFocus()

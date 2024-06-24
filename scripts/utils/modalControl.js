@@ -31,15 +31,7 @@ class ModalControl {
         this.$modal.style.display = "none"
     }
 
-    closeModalOnEscape() {
-        // Close modal when escape key is pressed
-        this.$modal.addEventListener("keydown", e => {
-            const isEscapePressed = (e.key === "Escape")
-            if (this.$modal.getAttribute("aria-hidden") === "false" && isEscapePressed) {
-                this.closeModal()
-            }
-        })
-    }
+
 
     trapFocus() {
         // trap focus into modal
