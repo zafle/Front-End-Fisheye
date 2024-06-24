@@ -50,7 +50,7 @@ class LightBox {
 
     closeModalOnEscape() {
         // Close modal when escape key is pressed
-        this.$modal.addEventListener("keydown", e => {
+        document.addEventListener("keydown", e => {
             const isEscapePressed = (e.key === "Escape")
             if (this.$modal.getAttribute("aria-hidden") === "false" && isEscapePressed) {
                 this.closeModal()
@@ -156,7 +156,8 @@ class LightBox {
 
     changeSlideWithArrow() {
 
-        document.addEventListener("keydown", e => {
+        document.addEventListener("keydown", (e) => {
+
             const keyCode = e.code
             if (keyCode === "ArrowLeft") {
                 this.changeSlide("previous")
