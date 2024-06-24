@@ -43,9 +43,19 @@ class LightBox {
         /** close modal
          *
          */
+
+        // get id of current view
+        const currentView = document.querySelector(".current-view")
+        const currentViewId = currentView.querySelector(".media__visual").dataset.id
+        // clear media section
         this.$slider.innerHTML = ""
+        // remove open class
         this.$mainContainer.classList.remove("lightbox_modal-open")
+        // launch general close modal function (for accessibility)
         this.ModalControl.closeModal()
+        // set focus on media that was last seen in lightbox --current view
+        const mediaToFocus = document.querySelector(`.media__lightbox-link[data-id="${currentViewId}"]`)
+        mediaToFocus.focus()
     }
 
     closeModalOnEscape() {

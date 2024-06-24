@@ -49,8 +49,6 @@ class MediaCard {
         return wrapper
     }
 
-
-
     // count and increase total number of likes at each new Media Card creation
     //
     // this function has to be called only on page loading
