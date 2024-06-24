@@ -237,6 +237,13 @@ class SorterForm {
                 const focusedArea = e.relatedTarget
                 // variable to store boolean value of "is another button focused ?"
                 let isButtonFocused = false
+                // variable to store boolean value of "is trigger focused ?"
+                let isTriggerFocused = false
+
+                // check if trigger is focused
+                if (focusedArea === this.$menuTrigger) {
+                    isTriggerFocused = true
+                }
 
                 // loop an each button to know if this button has focus
                 this.$filterButtons.forEach(button => {
@@ -245,11 +252,27 @@ class SorterForm {
                     }
                 })
 
-                // if no button has focus, close the menu
-                if (isButtonFocused === false) {
+                // if focus is out menu and trigger, close the menu
+                if (isButtonFocused === false && isTriggerFocused === false) {
                     this.closeFilterMenu()
                 }
             })
+        })
+    }
+
+    onFocusOutTrigger() {
+        // close menu when focus gets out of opened menu from trigger
+        this.$menuTrigger.addEventListener("focusout", (e) => {
+
+            if (this.$menuTrigger.classList.contains("is-opened")) {
+                // get the new focused area
+                const focusedArea = e.relatedTarget
+
+                // check if new focused area is a button
+                if (!focusedArea.classList.contains("filter-button")) {
+                    this.closeFilterMenu()
+                }
+            }
         })
     }
 
@@ -268,6 +291,8 @@ class SorterForm {
     runSorterForm() {
         // add click event listener on filter menu trigger
         this.onClickMenuTrigger()
+        // add focus out event listener on trigger
+        this.onFocusOutTrigger()
         // add click event listener on filter buttons
         this.onClickFilterButton()
         // add focus event listener on filter buttons
