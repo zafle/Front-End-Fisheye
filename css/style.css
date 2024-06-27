@@ -1,3 +1,25 @@
+/* ####### RESET ####### */
+* {
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 400;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  margin: 0;
+}
+
 /* ####### GENERAL ####### */
 body {
   font-size: 16px;
@@ -26,28 +48,6 @@ body {
 
 *:focus-visible {
   outline-offset: 4px;
-}
-
-/* ####### RESET ####### */
-* {
-  box-sizing: border-box;
-  font-family: "DM Sans", sans-serif;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  font-weight: 400;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-img {
-  display: block;
-  margin: 0;
 }
 
 .photographer__img-mask {
