@@ -44,18 +44,8 @@ class ContactForm {
     closeModal() {
         this.ModalControl.closeModal()
 
-        // if success message is displayed
-        const $successMessage = document.querySelector(".success-message")
-        if ($successMessage) {
-
-            // remove success message and display contact form
-            $successMessage.remove()
-            this.$contactForm.style.display ="block"
-
-            // delete parameters from URL whithout reloading the page
-            const newLocation = `photographer.html?id=${this._photographerId}`
-            window.history.replaceState(null, "", "/" + newLocation)
-        }
+        // check if success message is displayed and remove it
+        this.removeSuccessMessage()
     }
 
     closeModalOnEscape() {
@@ -179,7 +169,8 @@ class ContactForm {
 
         // if no errors, send the form
         if (errors === 0) {
-            this.$contactForm.submit()
+            console.log(`${this.$firstName.name} : ${this.$firstName.value}\n${this.$lastName.name} : ${this.$lastName.value}\n${this.$email.name} : ${this.$email.value}\n${this.$message.name} : ${this.$message.value}`)
+            this.displaySuccessMessage()
 
         // if error force focus on first error input
         } else {
@@ -190,18 +181,28 @@ class ContactForm {
 
     // display success message if form has been send
     displaySuccessMessage() {
+        this.$contactForm.style.display = "none"
+        const $successMessage = document.createElement("p")
+        $successMessage.classList.add("success-message")
+        $successMessage.innerText = `Votre message a été envoyé avec succès !`
+        this.$dialog.append($successMessage)
+    }
 
-        // check if form has been send
-        const urlSearchParams = new URL(document.location).searchParams
-        const userFirstName = urlSearchParams.get("firstname")
+    // remove succes message and clear contact form
+    removeSuccessMessage() {
+        const $successMessage = document.querySelector(".success-message")
+        // if success message is displayed
+        if ($successMessage) {
 
-        if (userFirstName) {
-            this.displayModal()
-            this.$contactForm.style.display = "none"
-            const $successMessage = document.createElement("p")
-            $successMessage.classList.add("success-message")
-            $successMessage.innerText = `Votre message a été envoyé avec succès !`
-            this.$dialog.append($successMessage)
+            // remove success message and display contact form
+            $successMessage.remove()
+            this.$contactForm.style.display ="block"
+
+            // clear contact form
+            this.$firstName.value = ""
+            this.$lastName.value = ""
+            this.$email.value = ""
+            this.$message.value = ""
         }
     }
 
@@ -235,8 +236,5 @@ class ContactForm {
             event.preventDefault()
             this.submitContactForm()
         })
-
-        // if form has been send display success message
-        this.displaySuccessMessage()
     }
 }
