@@ -20,8 +20,6 @@ class Sorter {
             // sort datas according to title in descending alphabetic order
             const sortedMedias = Array.from(medias).sort((a, b) => a.title.localeCompare(b.title))
             return sortedMedias
-        } else {
-            throw "unknown order type"
         }
     }
 }

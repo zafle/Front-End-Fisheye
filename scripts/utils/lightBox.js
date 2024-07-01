@@ -75,8 +75,12 @@ class LightBox {
          */
 
         this._medias.forEach( media => {
-            const Template = new MediaFactory(media, media.mediaType).createMedia()
-            this.$slider.append(Template.createMediaSlide(mediaId))
+            try {
+                const Template = new MediaFactory(media, media.mediaType).createMedia()
+                this.$slider.append(Template.createMediaSlide(mediaId))
+            } catch (error) {
+                console.error(`Unknown media type`, error)
+            }
         })
 
         const videos = this.$slider.querySelectorAll(".video-visual")

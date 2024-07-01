@@ -14,19 +14,11 @@ class MediaFactory {
     }
 
     createMedia() {
-        try {
-            if (this._type === "image") {
-                return new ImageCard(this._media)
+        if (this._type === "image") {
+            return new ImageCard(this._media)
 
-            } else if (this._type === "video") {
-                return new VideoCard(this._media)
-
-            } else {
-                throw new Error("Unknown media type format, impossible to create MediaCard")
-            }
-
-        } catch(error) {
-            console.log(error.message)
+        } else if (this._type === "video") {
+            return new VideoCard(this._media)
         }
     }
 }

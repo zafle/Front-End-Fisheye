@@ -93,20 +93,29 @@ class SorterForm {
         this.clearMediasSection()
 
         // Apply filter
-        const sortedMedias = Sorter.sorter(this._medias, filter)
+        try {
+            const sortedMedias = Sorter.sorter(this._medias, filter)
 
-        // build new medias cards
-        sortedMedias.forEach(media => {
-            const Template = new MediaFactory(media, media.mediaType).createMedia()
-            this.$mediasSection.append(Template.createMediaCard())
-            Template.addLikeEventListener()
-        })
+            // build new medias cards
+            sortedMedias.forEach(media => {
+                try {
+                    const Template = new MediaFactory(media, media.mediaType).createMedia()
+                    this.$mediasSection.append(Template.createMediaCard())
+                    Template.addLikeEventListener()
+                } catch (error) {
+                    console.error(`Unknown media type`, error)
+                }
+            })
 
-        // update likes values
-        this.updateLikes()
+            // update likes values
+            this.updateLikes()
 
-        // update Lightbox medias and add event listeners on new media cards
-        this._Lightbox.updateLightboxWithNewMedias(sortedMedias)
+            // update Lightbox medias and add event listeners on new media cards
+            this._Lightbox.updateLightboxWithNewMedias(sortedMedias)
+
+        } catch (error) {
+            console.error(`Unknown filter type`, error)
+        }
     }
 
     // ######### OPEN AND CLOSE FILTER MENU #########

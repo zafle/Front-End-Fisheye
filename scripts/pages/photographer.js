@@ -36,9 +36,13 @@ class Medias {
         await this.fetchMedias()
 
         this._medias.forEach(media => {
-            const Template = new MediaFactory(media, media.mediaType).createMedia()
-            this.$mediasSection.append(Template.createMediaCard())
-            Template.runLikesCounter()
+            try {
+                const Template = new MediaFactory(media, media.mediaType).createMedia()
+                this.$mediasSection.append(Template.createMediaCard())
+                Template.runLikesCounter()
+            } catch (error) {
+                console.error(`Unknown media type`, error)
+            }
         })
 
         // run lightbox
