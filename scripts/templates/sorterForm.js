@@ -97,7 +97,7 @@ class SorterForm {
 
         // build new medias cards
         sortedMedias.forEach(media => {
-            const Template = new MediaFactory(media, media.mediaType)
+            const Template = new MediaFactory(media, media.mediaType).createMedia()
             this.$mediasSection.append(Template.createMediaCard())
             Template.addLikeEventListener()
         })

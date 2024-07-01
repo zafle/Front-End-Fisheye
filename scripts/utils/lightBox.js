@@ -75,7 +75,7 @@ class LightBox {
          */
 
         this._medias.forEach( media => {
-            const Template = new MediaFactory(media, media.mediaType)
+            const Template = new MediaFactory(media, media.mediaType).createMedia()
             this.$slider.append(Template.createMediaSlide(mediaId))
         })
 

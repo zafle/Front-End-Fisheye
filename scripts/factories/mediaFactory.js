@@ -9,12 +9,24 @@ class MediaFactory {
      * @param {string} type
      */
     constructor(media, type) {
-        if (type === "image") {
-            return new ImageCard(media)
-        } else if (type === "video") {
-            return new VideoCard(media)
-        } else {
-            throw "Unknown type format"
+        this._media = media
+        this._type = type
+    }
+
+    createMedia() {
+        try {
+            if (this._type === "image") {
+                return new ImageCard(this._media)
+
+            } else if (this._type === "video") {
+                return new VideoCard(this._media)
+
+            } else {
+                throw new Error("Unknown media type format, impossible to create MediaCard")
+            }
+
+        } catch(error) {
+            console.log(error.message)
         }
     }
 }
