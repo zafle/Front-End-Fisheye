@@ -48,21 +48,16 @@ class ModalControl {
             // if keypress is not tab, return
             if (!isTabPressed) {
                 return
-            }
 
-            // if is shift + tab and first element is focused, focus the last one
-            if ( e.shiftKey ) /* shift + tab */ {
-                if (document.activeElement === firstFocusableEl) {
-                    lastFocusableEl.focus()
-                    e.preventDefault()
-                }
+            // else if is shift + tab AND first element is focused, focus the last one
+            } else if ((e.shiftKey) && (document.activeElement === firstFocusableEl)) {
+                lastFocusableEl.focus()
+                e.preventDefault()
 
-                // if is tab and last element is focused, focus the first one
-            } else /* tab */ {
-                if (document.activeElement === lastFocusableEl) {
-                    firstFocusableEl.focus()
-                    e.preventDefault()
-                }
+            // else if is tab AND last element is focused, focus the first one
+            } else if (document.activeElement === lastFocusableEl) {
+                firstFocusableEl.focus()
+                e.preventDefault()
             }
         })
     }

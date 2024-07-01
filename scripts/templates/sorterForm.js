@@ -32,23 +32,20 @@ class SorterForm {
         this._likesBackup = []
 
         // backup new values
-        for ( let i = 0; i < this._medias.length; i++) {
+        for (let media of this._medias) {
+
+            const mediaId = parseInt(media.id)
 
             // get HTML elements by media id
-            const $likes = document.querySelector('.media__likes__count[data-id="' + this._medias[i].id + '"]')
-            const $addLike = document.querySelector('.media__likes__add[data-id="' + this._medias[i].id + '"]')
+            const $likes = document.querySelector(`.media__likes__count[data-id="${mediaId}"]`)
+            const $addLike = document.querySelector(`.media__likes__add[data-id="${mediaId}"]`)
 
             // if media has been liked, set value on true
-            let mediaLiked = ""
-            if ($addLike.classList.contains("media-liked")) {
-                mediaLiked = true
-            } else {
-                mediaLiked = false
-            }
+            let mediaLiked = ($addLike.classList.contains("media-liked")) ? true : false
 
             // log values in an array (id, likes amount, media liked)
             this._likesBackup.push({
-                id: parseInt(this._medias[i].id),
+                id: mediaId,
                 likes: parseInt($likes.innerHTML),
                 liked: mediaLiked
             })
@@ -60,13 +57,16 @@ class SorterForm {
         // add class media-liked to medias that can't receive more like
 
         //  get new HTML elements by media id logged in the backup array
-        for ( let i = 0; i < this._likesBackup.length; i++) {
-            const $likes = document.querySelector(`.media__likes__count[data-id="${this._likesBackup[i].id}"]`)
-            const $addLike = document.querySelector(`.media__likes__add[data-id="${this._likesBackup[i].id}"]`)
+        for (let likesBackup of this._likesBackup) {
+
+            const likeBackupId = likesBackup.id
+
+            const $likes = document.querySelector(`.media__likes__count[data-id="${likeBackupId}"]`)
+            const $addLike = document.querySelector(`.media__likes__add[data-id="${likeBackupId}"]`)
 
             // set new values of likes and add class media-liked to prevent other like action
-            $likes.innerHTML = this._likesBackup[i].likes
-            if (this._likesBackup[i].liked === true) {
+            $likes.innerHTML = likesBackup.likes
+            if (likesBackup.liked === true) {
                 $addLike.classList.add("media-liked")
             }
         }

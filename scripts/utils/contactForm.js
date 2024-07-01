@@ -75,7 +75,7 @@ class ContactForm {
     }
 
     validateEmail(input) {
-        const emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+")
+        const emailRegExp = /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+$/
         if (!emailRegExp.test(input.value)) {
             throw new Error("L'email doit être valide")
         }

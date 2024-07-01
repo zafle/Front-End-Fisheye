@@ -143,11 +143,7 @@ class MediaCard {
 class ImageCard extends MediaCard {
     /** Template Pattern for IMAGE media card
      *
-     * @param {Object} media
      */
-    constructor(media) {
-        super(media)
-    }
 
     // create HTML content for the image picture
     visual() {
@@ -165,11 +161,7 @@ class ImageCard extends MediaCard {
 class VideoCard extends MediaCard {
     /** Template Pattern for VIDEO media card
      *
-     * @param {Object} media
      */
-    constructor(media) {
-        super(media)
-    }
 
     // create HTML content for the video media
     visual() {
